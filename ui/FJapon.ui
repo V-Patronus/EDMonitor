@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>433</width>
+    <height>1148</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Ángulos Calculados</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 
+   ESTILO: CYBER-GLASS UI 2025
+   Enfoque: Minimalismo tecnológico, Glassmorphism y jerarquía visual.
+*/
+
+/* ---------- VENTANA PRINCIPAL ---------- */
+QWidget#Form {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #05050a, stop:0.4 #0c0c1f, stop:1 #13132b);
+    font-family: &quot;SF Pro Display&quot;, &quot;Inter&quot;, &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* ---------- TOP BAR &amp; INPUTS ---------- */
+QLabel#labelRadio {
+    color: rgba(0, 229, 255, 0.8);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+/* --- AHORA ES UN QLineEdit --- */
+QLineEdit#lineEditRadio {
+    background: rgba(255, 255, 255, 0.05);
+    color: #00e5ff; /* Color cian para el número ingresado */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    
+    min-height: 40px;      /* Alto generoso estilo moderno */
+    font-size: 15px;       /* Fuente grande y legible */
+    font-weight: 700;
+    padding-left: 15px;    /* Espacio a la izquierda */
+    padding-right: 15px;   /* Espacio a la derecha */
+    
+    selection-background-color: #00e5ff; /* Color de selección */
+    selection-color: #05050a;            /* Color del texto seleccionado */
+}
+
+QLineEdit#lineEditRadio:hover {
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+QLineEdit#lineEditRadio:focus {
+    border: 1px solid #00e5ff; /* Borde brillante al escribir */
+    background: rgba(0, 229, 255, 0.05);
+}
+
+/* ---------- BOTÓN CALCULAR (EFECTO NEÓN) ---------- */
+QPushButton#pushButtonCalcular {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, 
+                                stop:0 #00f2fe, stop:1 #4facfe);
+    color: #001a1a;
+    font-size: 12px;
+    font-weight: 900;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+QPushButton#pushButtonCalcular:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, 
+                                stop:0 #00e5ff, stop:1 #0072ff);
+}
+
+QPushButton#pushButtonCalcular:pressed {
+    background: #00c6ff;
+}
+
+/* ---------- TARJETAS (GLASSMORPHISM AVANZADO) ---------- */
+QFrame[class=&quot;tarjeta-angle&quot;] {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+                                stop:0 rgba(255, 255, 255, 0.06), 
+                                stop:1 rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Brillo en el borde superior */
+    border-radius: 24px;
+    padding: 20px;
+    margin: 10px;
+}
+
+QFrame[class=&quot;tarjeta-angle&quot;]:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+}
+
+/* ---------- TEXTOS DE TARJETA ---------- */
+
+/* El nombre del ángulo (Badge Style) */
+QLabel[name=&quot;number-angle&quot;] {
+    color: #00e5ff;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(0, 229, 255, 0.12);
+    border-radius: 6px;
+    padding: 4px 8px;
+    max-height: 20px;
+}
+
+/* El valor numérico (Thin Modern Style) */
+QLabel[valor=&quot;angle-c&quot;] {
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 200;
+    background: transparent;
+    padding-top: 10px;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="topBar">
+     <item>
+      <widget class="QLabel" name="labelRadio">
+       <property name="text">
+        <string>Radio (R):</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEditRadio"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCalcular">
+       <property name="text">
+        <string>Calcular</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_1">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_titulo_1">
+        <property name="text">
+         <string>Ángulo 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_1">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_titulo_2">
+        <property name="text">
+         <string>Ángulo 2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_titulo_3">
+        <property name="text">
+         <string>Ángulo 3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_3">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="label_titulo_4">
+        <property name="text">
+         <string>Ángulo 4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_4">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_5">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_titulo_5">
+        <property name="text">
+         <string>Ángulo 5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_5">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="tarjeta_angulo_6">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>tarjeta-angle</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_titulo_6">
+        <property name="text">
+         <string>Ángulo 6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="name" stdset="0">
+         <string>number-angle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_valor_6">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="valor" stdset="0">
+         <string>angle-c</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConverterHorizontalDarkReady</class>
+ <widget class="QWidget" name="ConverterHorizontalDarkReady">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>350</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Conversor Dark - Ready to Use</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===== MODO OSCURO + HORIZONTAL + OPCIONES CARGADAS ===== */
+
+#ConverterHorizontalDarkReady {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #0f172a, stop:1 #1e293b);
+    border-radius: 16px;
+}
+
+#headerFrame {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1e40af, stop:1 #3b82f6);
+    border-radius: 16px 16px 0 0;
+    padding: 20px;
+}
+
+#titleLabel {
+    color: #f8fafc;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#subtitleLabel {
+    color: rgba(248, 250, 252, 0.8);
+    font-size: 14px;
+}
+
+#contentFrame {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 16px;
+    margin: 20px;
+    
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#leftFrame, #rightFrame {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 16px;
+    padding: 25px;
+    
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+#inputLineEdit, #outputLineEdit {
+    background: transparent;
+    color: #f8fafc;
+    border: none;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 0px;
+    padding: 14px 0px;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 500;
+    
+    selection-background-color: #3b82f6;
+    selection-color: #ffffff;
+}
+
+#inputLineEdit:focus, #outputLineEdit:focus {
+    border-bottom-color: #60a5fa;
+    box-shadow: 0 2px 12px rgba(96, 165, 250, 0.3);
+}
+
+#inputLineEdit::placeholder, #outputLineEdit::placeholder {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ===== COMBOS CON OPCIONES CARGADAS ===== */
+#comboFrom, #comboTo {
+    background: rgba(30, 41, 59, 0.8);
+    color: #e2e8f0;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#comboFrom:hover, #comboTo:hover {
+    border-color: rgba(96, 165, 250, 0.6);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+/* ===== ITEMS DEL COMBO (MODO OSCURO) ===== */
+#comboFrom::item, #comboTo::item {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 8px 12px;
+}
+
+#comboFrom::item:selected, #comboTo::item:selected {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+#comboFrom::item:hover, #comboTo::item:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+/* ===== BOTÓN SWAPPER ===== */
+#btnSwap {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #10b981, stop:1 #059669);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    font-weight: 700;
+    
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btnSwap:hover {
+    transform: rotate(180deg) scale(1.15);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+}
+
+/* ===== BOTONES DE ACCIÓN ===== */
+#btnConvert, #btnClear {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #3b82f6, stop:1 #2563eb);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 120px;
+    
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btnConvert:hover, #btnClear:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #60a5fa, stop:1 #3b82f6);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+}
+
+/* ===== ETIQUETAS OSCURAS ===== */
+#fromLabel, #toLabel {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 8px;
+}
+
+/* ===== SCROLLBARS OSCUROS ===== */
+QScrollBar:vertical {
+    background: transparent;
+    width: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(96, 165, 250, 0.6);
+    border-radius: 4px;
+    min-height: 30px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(96, 165, 250, 0.8);
+    transform: scale(1.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 800px) {
+    #inputLineEdit, #outputLineEdit {
+        font-size: 24px;
+    }
+    
+    #btnConvert, #btnClear {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="headerFrame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QVBoxLayout" name="headerLayout">
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>30</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="titleLabel">
+        <property name="text">
+         <string>Conversor Dark Horizontal</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="subtitleLabel">
+        <property name="text">
+         <string>Conversión instantánea en modo oscuro y horizontal</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="contentFrame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>30</number>
+      </property>
+      <property name="rightMargin">
+       <number>30</number>
+      </property>
+      <property name="bottomMargin">
+       <number>30</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="leftFrame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QVBoxLayout" name="leftLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>25</number>
+         </property>
+         <property name="topMargin">
+          <number>25</number>
+         </property>
+         <property name="rightMargin">
+          <number>25</number>
+         </property>
+         <property name="bottomMargin">
+          <number>25</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="fromLabel">
+           <property name="text">
+            <string>Desde:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboFrom">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <item>
+            <property name="text">
+             <string>--- Longitud ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Metros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Centímetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Milímetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kilómetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pies</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pulgadas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Masa ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kilogramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Miligramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Libras</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Onzas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Temperatura ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Celsius</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Fahrenheit</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kelvin</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Volumen ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Litros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Mililitros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Galones</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Onzas líquidas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Velocidad ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>m/s</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>km/h</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>mph</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Nudos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Energía ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Julios</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Calorías</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>kWh</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BTU</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="inputLineEdit">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="centerFrame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QVBoxLayout" name="centerLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnSwap">
+            <property name="text">
+             <string>⇅</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="rightFrame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QVBoxLayout" name="rightLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>25</number>
+          </property>
+         <property name="topMargin">
+          <number>25</number>
+          </property>
+         <property name="rightMargin">
+          <number>25</number>
+          </property>
+         <property name="bottomMargin">
+          <number>25</number>
+          </property>
+         <item>
+          <widget class="QLabel" name="toLabel">
+           <property name="text">
+            <string>Hasta:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboTo">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <item>
+            <property name="text">
+             <string>--- Longitud ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Centímetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Milímetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kilómetros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pies</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pulgadas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Metros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Masa ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Miligramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Libras</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Onzas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kilogramos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Temperatura ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Fahrenheit</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kelvin</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Celsius</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Volumen ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Mililitros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Galones</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Onzas líquidas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Litros</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Velocidad ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>km/h</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>mph</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Nudos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>m/s</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>--- Energía ---</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Calorías</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>kWh</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BTU</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Julios</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="outputLineEdit">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="placeholderText">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="actionFrame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="actionLayout">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>30</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnConvert">
+        <property name="text">
+         <string>Convertir</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClear">
+        <property name="text">
+         <string>Limpiar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

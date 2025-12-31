@@ -1,0 +1,7 @@
+# Entornos virtuales de Python
+venv/
+.venv/
+env/
+virtualenv/
+bin/
+lib/

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FuturisticCard</class>
+ <widget class="QWidget" name="FuturisticCard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>498</width>
+    <height>368</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FuturisticCard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ---------- BASE ---------- */
+#cardFrame{
+    border-radius: 24px;
+    padding: 24px;
+    font-family: &quot;Orbitron&quot;, sans-serif;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 rgba(10,15,30,220),
+        stop:1 rgba(25,30,60,220));
+    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #00f5d4,
+        stop:1 #ff00ff);
+}
+#iconLabel{
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 5px;
+    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #00f5d4,
+        stop:1 #ff00ff);
+}
+#nameLabel{
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#descLabel{
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+QPushButton{
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid rgba(255,255,255,60);
+    min-width: 90px;
+    max-width: 90px;
+}
+
+/* ==========================================================
+   TEMA NEON
+   ========================================================== */
+#cardFrame[value=&quot;neon&quot;] #nameLabel{ color: #00f5d4; }
+#cardFrame[value=&quot;neon&quot;] #descLabel{ color: #b0b0ff; }
+#cardFrame[value=&quot;neon&quot;] QPushButton{
+    background: #00f5d4;
+    color: #0a0f1e;
+}
+#cardFrame[value=&quot;neon&quot;] QPushButton:hover{ background: #ffffff; }
+#cardFrame[value=&quot;neon&quot;] QPushButton:pressed{ background: #00c7ae; }
+#cardFrame[value=&quot;neon&quot;] #descText{
+    color: #b0b0ff;
+    background: rgba(255,255,255,12);
+    border: 1px solid rgba(0,245,212,80);
+    border-radius: 10px;
+    padding: 8px;
+    font-family: &quot;Orbitron&quot;;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TEMA SUNSET
+   ========================================================== */
+#cardFrame[value=&quot;sunset&quot;] #nameLabel{ color: #ffcc00; }
+#cardFrame[value=&quot;sunset&quot;] #descLabel{ color: #ffb3d9; }
+#cardFrame[value=&quot;sunset&quot;] QPushButton{
+    background: #ffcc00;
+    color: #2e0b18;
+}
+#cardFrame[value=&quot;sunset&quot;] QPushButton:hover{ background: #ffe066; }
+#cardFrame[value=&quot;sunset&quot;] QPushButton:pressed{ background: #cc9900; }
+#cardFrame[value=&quot;sunset&quot;] #descText{
+    color: #ffb3d9;
+    background: rgba(255,255,255,12);
+    border: 1px solid rgba(255,204,0,80);
+    border-radius: 10px;
+    padding: 8px;
+    font-family: &quot;Orbitron&quot;;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TEMA AURORA
+   ========================================================== */
+#cardFrame[value=&quot;aurora&quot;] #nameLabel{ color: #00ffaa; }
+#cardFrame[value=&quot;aurora&quot;] #descLabel{ color: #a0ffd0; }
+#cardFrame[value=&quot;aurora&quot;] QPushButton{
+    background: #00ffaa;
+    color: #002220;
+}
+#cardFrame[value=&quot;aurora&quot;] QPushButton:hover{ background: #80ffdd; }
+#cardFrame[value=&quot;aurora&quot;] QPushButton:pressed{ background: #00cc88; }
+#cardFrame[value=&quot;aurora&quot;] #descText{
+    color: #a0ffd0;
+    background: rgba(255,255,255,12);
+    border: 1px solid rgba(0,255,170,80);
+    border-radius: 10px;
+    padding: 8px;
+    font-family: &quot;Orbitron&quot;;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TEMA LAVA
+   ========================================================== */
+#cardFrame[value=&quot;lava&quot;] #nameLabel{ color: #ffaa00; }
+#cardFrame[value=&quot;lava&quot;] #descLabel{ color: #ffccaa; }
+#cardFrame[value=&quot;lava&quot;] QPushButton{
+    background: #ffaa00;
+    color: #1a0500;
+}
+#cardFrame[value=&quot;lava&quot;] QPushButton:hover{ background: #ffcc66; }
+#cardFrame[value=&quot;lava&quot;] QPushButton:pressed{ background: #cc7700; }
+#cardFrame[value=&quot;lava&quot;] #descText{
+    color: #ffccaa;
+    background: rgba(255,255,255,12);
+    border: 1px solid rgba(255,170,0,80);
+    border-radius: 10px;
+    padding: 8px;
+    font-family: &quot;Orbitron&quot;;
+    font-size: 13px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="cardFrame">
+     <property name="minimumSize">
+      <size>
+       <width>480</width>
+       <height>350</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>480</width>
+       <height>350</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="property" stdset="0">
+      <string>value</string>
+     </property>
+     <property name="value" stdset="0">
+      <string>neon</string>
+     </property>
+     <layout class="QVBoxLayout" name="cardLayout">
+      <item alignment="Qt::AlignmentFlag::AlignHCenter">
+       <widget class="QLabel" name="iconLabel">
+        <property name="pixmap">
+         <pixmap resource="../assets/resources_qrc/resources.qrc">:/iconos/iconos/carpeta.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignmentFlag::AlignHCenter">
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>Nombre del Item</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="descText">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="plainText">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Aquí estará la descripción de la tarjeta</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="buttonWidget" native="true">
+        <layout class="QHBoxLayout" name="buttonLayout">
+         <item>
+          <widget class="QPushButton" name="goButton">
+           <property name="text">
+            <string>Ir</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editButton">
+           <property name="text">
+            <string>Editar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteButton">
+           <property name="text">
+            <string>Eliminar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../assets/resources_qrc/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

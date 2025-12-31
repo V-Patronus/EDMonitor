@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TailAdmin Dark</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* TailAdmin Dark Theme - Estilo Profesional */
+QMainWindow {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Sidebar Principal */
+QFrame#sidebarFrame {
+    background-color: #1e293b;
+    border: none;
+}
+
+/* Logo/Header del Sidebar */
+QFrame#logoFrame {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+QLabel#logoLabel {
+    color: #38bdf8;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 20px;
+}
+
+/* Estilo para el menú de navegación */
+QPushButton#navButton {
+    background-color: transparent;
+    color: #94a3b8;
+    border: none;
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin: 2px 8px;
+    qproperty-iconSize: 20px;
+}
+
+QPushButton#navButton:hover {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+QPushButton#navButton:checked {
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+QPushButton#navButton:pressed {
+    background-color: #2563eb;
+}
+
+/* Header Principal */
+QFrame#headerFrame {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+QLabel#headerTitle {
+    color: #f8fafc;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+QLabel#headerSubtitle {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* Breadcrumbs */
+QLabel#breadcrumb {
+    color: #64748b;
+    font-size: 14px;
+}
+
+QLabel#breadcrumb[current="true"] {
+    color: #e2e8f0;
+}
+
+/* Search Bar */
+QLineEdit#searchEdit {
+    background-color: #334155;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: #e2e8f0;
+    font-size: 14px;
+    min-width: 300px;
+}
+
+QLineEdit#searchEdit:focus {
+    border-color: #3b82f6;
+    background-color: #1e293b;
+}
+
+QLineEdit#searchEdit::placeholder {
+    color: #64748b;
+}
+
+/* User Profile Button */
+QPushButton#userButton {
+    background-color: #334155;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+QPushButton#userButton:hover {
+    background-color: #475569;
+}
+
+/* Tarjetas de estadísticas */
+QFrame#statsCard {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+QLabel#statsValue {
+    color: #f8fafc;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+QLabel#statsLabel {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+QLabel#statsChange {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+QLabel#statsChange[positive="true"] {
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+QLabel#statsChange[positive="false"] {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Gráficos y contenedores */
+QFrame#chartFrame {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+/* Tabla moderna */
+QTableWidget {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    gridline-color: #334155;
+    selection-background-color: #3b82f6;
+    alternate-background-color: #334155;
+}
+
+QTableWidget::item {
+    padding: 12px;
+    color: #e2e8f0;
+}
+
+QHeaderView::section {
+    background-color: #334155;
+    color: #94a3b8;
+    padding: 12px;
+    border: none;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Scrollbars modernos */
+QScrollBar:vertical {
+    background-color: #1e293b;
+    width: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #475569;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #64748b;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background-color: #1e293b;
+    height: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #475569;
+    border-radius: 4px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #64748b;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* Botones modernos */
+QPushButton#primaryButton {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+QPushButton#primaryButton:hover {
+    background-color: #2563eb;
+}
+
+QPushButton#secondaryButton {
+    background-color: transparent;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+QPushButton#secondaryButton:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="sidebarFrame">
+      <property name="minimumSize">
+       <size>
+        <width>280</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>280</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="sidebarLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="logoFrame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="logoLayout">
+          <item>
+           <widget class="QLabel" name="logoLabel">
+            <property name="text">
+             <string>⚡ TailAdmin</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="navDashboard">
+         <property name="text">
+          <string>📊 Dashboard</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="navAnalytics">
+         <property name="text">
+          <string>📈 Analytics</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="navReports">
+         <property name="text">
+          <string>📋 Reports</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="navUsers">
+         <property name="text">
+          <string>👥 Users</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="navSettings">
+         <property name="text">
+          <string>⚙️ Settings</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="sidebarSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="mainLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="headerFrame">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="headerLayout">
+         <property name="leftMargin">
+          <number>32</number>
+         </property>
+         <property name="rightMargin">
+          <number>32</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="breadcrumb">
+           <property name="text">
+            <string>Home / Dashboard</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="headerSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchEdit">
+           <property name="placeholderText">
+            <string>Search...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="userButton">
+           <property name="text">
+            <string>👤 Admin User</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="mainStackedWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="dashboardPage">
+         <layout class="QVBoxLayout" name="dashboardLayout">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="headerTitle">
+            <property name="text">
+             <string>Dashboard</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="headerSubtitle">
+            <property name="text">
+             <string>Welcome back! Here's what's happening with your business today.</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="statsLayout">
+            <item>
+             <widget class="QFrame" name="statsCard1">
+              <layout class="QVBoxLayout" name="statsLayout1">
+               <item>
+                <widget class="QLabel" name="statsValue1">
+                 <property name="text">
+                  <string>$45,231</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsLabel1">
+                 <property name="text">
+                  <string>Total Revenue</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsChange1">
+                 <property name="text">
+                  <string>↑ +12.5%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="statsCard2">
+              <layout class="QVBoxLayout" name="statsLayout2">
+               <item>
+                <widget class="QLabel" name="statsValue2">
+                 <property name="text">
+                  <string>3,456</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsLabel2">
+                 <property name="text">
+                  <string>Total Orders</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsChange2">
+                 <property name="text">
+                  <string>↑ +8.2%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="statsCard3">
+              <layout class="QVBoxLayout" name="statsLayout3">
+               <item>
+                <widget class="QLabel" name="statsValue3">
+                 <property name="text">
+                  <string>12,456</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsLabel3">
+                 <property name="text">
+                  <string>Total Customers</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsChange3">
+                 <property name="text">
+                  <string>↑ +15.3%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="statsCard4">
+              <layout class="QVBoxLayout" name="statsLayout4">
+               <item>
+                <widget class="QLabel" name="statsValue4">
+                 <property name="text">
+                  <string>$2,456</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsLabel4">
+                 <property name="text">
+                  <string>Today's Revenue</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="statsChange4">
+                 <property name="text">
+                  <string>↓ -3.1%</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="dashboardScroll">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1056</width>
+               <height>500</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="scrollLayout">
+              <item>
+               <widget class="QFrame" name="chartFrame">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>400</height>
+                 </size>
+                </property>
+                <layout class="QVBoxLayout" name="chartLayout">
+                 <item>
+                  <widget class="QLabel" name="chartTitle">
+                   <property name="text">
+                    <string>Revenue Overview</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="chartPlaceholder">
+                   <property name="text">
+                    <string>[Chart Area - Add your chart widget here]</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="analyticsPage">
+         <layout class="QVBoxLayout" name="analyticsLayout">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="analyticsTitle">
+            <property name="text">
+             <string>Analytics</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="analyticsScroll">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="analyticsScrollContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1056</width>
+               <height>600</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="analyticsScrollLayout">
+              <item>
+               <widget class="QLabel" name="analyticsContent">
+                <property name="text">
+                 <string>Analytics content will go here...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="reportsPage">
+         <layout class="QVBoxLayout" name="reportsLayout">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="reportsTitle">
+            <property name="text">
+             <string>Reports</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="reportsScroll">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="reportsScrollContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1056</width>
+               <height>600</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="reportsScrollLayout">
+              <item>
+               <widget class="QLabel" name="reportsContent">
+                <property name="text">
+                 <string>Reports content will go here...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="usersPage">
+         <layout class="QVBoxLayout" name="usersLayout">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="usersTitle">
+            <property name="text">
+             <string>Users</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="usersScroll">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="usersScrollContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1056</width>
+               <height>600</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="usersScrollLayout">
+              <item>
+               <widget class="QLabel" name="usersContent">
+                <property name="text">
+                 <string>Users management will go here...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="settingsPage">
+         <layout class="QVBoxLayout" name="settingsLayout">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="settingsTitle">
+            <property name="text">
+             <string>Settings</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="settingsScroll">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="settingsScrollContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>1056</width>
+               <height>600</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="settingsScrollLayout">
+              <item>
+               <widget class="QLabel" name="settingsContent">
+                <property name="text">
+                 <string>Settings content will go here...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>navDashboard</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mainStackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>navAnalytics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mainStackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>navReports</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mainStackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>220</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>navUsers</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mainStackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>navSettings</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mainStackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>320</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>a
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CardModal</class>
+ <widget class="QWidget" name="CardModal">
+  <property name="windowModality">
+   <enum>Qt::WindowModality::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>358</width>
+    <height>521</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestión de Tarjeta</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ----------  VENTANA GENERAL  ---------- */
+#CardModal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #0f172a, stop:1 #1e293b);
+    color: #ffffff;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Inter&quot;, sans-serif;
+    border-radius: 12px;
+}
+
+/* ----------  TÍTULO (estilo exacto que diste)  ---------- */
+#titleLabel {
+    /* Color de texto y tipografía */
+    color: #ffffff;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Inter&quot;, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    /* Fondo: Gradiente sutil que nace del color de acento */
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 rgba(74, 144, 226, 0.15),
+                                stop:0.6 rgba(45, 45, 45, 0.4),
+                                stop:1 transparent);
+
+    /* Bordes redondeados y borde de acento */
+    border-left: 4px solid #4a90e2;
+    border-right: 4px solid #4a90e2;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    /* Espaciado */
+    padding: 6px 15px 6px 12px;
+    margin: 5px 5px 5px 5px;
+}
+
+/* ----------  TÍTULO (estilo exacto que diste)  ---------- */
+#lblStyle {
+    /* Color de texto y tipografía */
+    color: #ffffff;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Inter&quot;, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    /* Fondo: Gradiente sutil que nace del color de acento */
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 rgba(74, 144, 226, 0.15),
+                                stop:0.6 rgba(45, 45, 45, 0.4),
+                                stop:1 transparent);
+
+    /* Bordes redondeados y borde de acento */
+    border-left: 4px solid #4a90e2;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    /* Espaciado */
+    padding: 6px 15px 6px 12px;
+    margin: 5px 5px 5px 5px;
+}
+
+/* ----------  SELECTOR DE ICONOS  ---------- */
+#iconSelectorFrame {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#iconFolder, #iconExcel, #iconPdf, #iconDefault {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    font-size: 32px;
+    min-width: 64px;
+    min-height: 64px;
+}
+
+#iconFolder:hover, #iconExcel:hover, #iconPdf:hover, #iconDefault:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+#iconFolder:pressed, #iconExcel:pressed, #iconPdf:pressed, #iconDefault:pressed {
+    background-color: #1e3a5b;
+}
+
+#iconFolder:checked, #iconExcel:checked, #iconPdf:checked, #iconDefault:checked {
+    background-color: #23446a;
+    border: 2px solid #ffffff;
+}
+
+/* ----------  CAMPOS DE ENTRADA  ---------- */
+#nameEdit, #pathEdit {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#descEdit {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+    min-height: 80px;
+}
+
+/* Focus */
+#nameEdit:focus, #pathEdit:focus, #descEdit:focus {
+    border: 2px solid #4a90e2;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ----------  BOTÓN EXAMINAR  ---------- */
+#browseButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#browseButton:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#browseButton:pressed {
+    background-color: #4a90e2;
+}
+
+/* ----------  BOTONES DE ACCIÓN  ---------- */
+#createButton, #editButton {
+    background-color: #4a90e2;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#createButton:hover, #editButton:hover {
+    background-color: #5aa0f2;
+}
+
+#createButton:pressed, #editButton:pressed {
+    background-color: #3a7bc8;
+}
+
+#deleteButton {
+    background-color: #e53935;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#deleteButton:hover {
+    background-color: #f14643;
+}
+
+#deleteButton:pressed {
+    background-color: #c62828;
+}
+
+/* Estilo base del QComboBox */
+QComboBox[type=&quot;combo-box&quot;] {
+    border: 2px solid #3d3d3d;
+    border-radius: 8px;
+    padding: 5px 35px 5px 15px; /* El padding derecho reserva espacio para el SVG */
+    color: #ffffff;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+                                stop:0 #2e2e2e, stop:1 #1a1a1a);
+    selection-background-color: #4a90e2;
+}
+
+QComboBox[type=&quot;combo-box&quot;]:hover {
+    border: 2px solid #5c5c5c;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+                                stop:0 #383838, stop:1 #242424);
+}
+
+QComboBox[type=&quot;combo-box&quot;]:focus {
+    border: 2px solid #4a90e2;
+    background: #1a1a1a;
+}
+
+/* Contenedor del botón de despliegue */
+QComboBox[type=&quot;combo-box&quot;]::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 30px;
+    border-left: none;
+}
+
+/* LA FLECHA SVG */
+QComboBox[type=&quot;combo-box&quot;]::down-arrow {
+    /* Asegúrate de que la ruta sea correcta según tu archivo .qrc */
+    image: url(:/iconos/iconos/chevron-down.svg); 
+    width: 14px;  /* Tamaño del icono */
+    height: 14px;
+}
+
+/* Efecto opcional: Cambiar la flecha cuando el menú está desplegado */
+QComboBox[type=&quot;combo-box&quot;]::down-arrow:on {
+    top: 1px; /* Pequeño desplazamiento al hacer click */
+}
+
+/* Flecha para estado desactivado (opcional) */
+QComboBox[type=&quot;combo-box&quot;]::down-arrow:disabled {
+    image: url(:/icons/chevron-down-gray.svg);
+}
+
+/* Estilo del menú desplegable (la lista) */
+QComboBox[type=&quot;combo-box&quot;] QAbstractItemView {
+    border: 2px solid #4a90e2;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    selection-background-color: #4a90e2;
+    selection-color: #ffffff;
+    outline: 0px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QComboBox[type=&quot;combo-box&quot;] QAbstractItemView::item {
+    min-height: 30px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+QComboBox[type=&quot;combo-box&quot;] QAbstractItemView::item:selected {
+    background-color: #4a90e2;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Tarjeta de Control</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="iconSelectorFrame">
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <layout class="QGridLayout" name="iconGrid">
+      <item row="0" column="0">
+       <widget class="QToolButton" name="iconFolder">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../assets/resources_qrc/resources.qrc">
+          <normaloff>:/iconos/iconos/carpeta.svg</normaloff>:/iconos/iconos/carpeta.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QToolButton" name="iconExcel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../assets/resources_qrc/resources.qrc">
+          <normaloff>:/iconos/iconos/excel.svg</normaloff>:/iconos/iconos/excel.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QToolButton" name="iconPdf">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../assets/resources_qrc/resources.qrc">
+          <normaloff>:/iconos/iconos/pdf.svg</normaloff>:/iconos/iconos/pdf.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QToolButton" name="iconDefault">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../assets/resources_qrc/resources.qrc">
+          <normaloff>:/iconos/iconos/default.svg</normaloff>:/iconos/iconos/default.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="styleLayout">
+     <item>
+      <widget class="QLabel" name="lblStyle">
+       <property name="text">
+        <string>Estilo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="type" stdset="0">
+        <string>combo-box</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>neon</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>sunset</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>lava</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>aurora</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="nameEdit">
+     <property name="placeholderText">
+      <string>Nombre de la tarjeta</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="descEdit">
+     <property name="placeholderText">
+      <string>Descripción de la tarjeta</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="pathRowLayout" stretch="1,0">
+     <item>
+      <widget class="QLineEdit" name="pathEdit">
+       <property name="placeholderText">
+        <string>Ruta (archivo o carpeta)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browseButton">
+       <property name="text">
+        <string>Examinar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="createButton">
+       <property name="text">
+        <string>Crear Tarjeta</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="editButton">
+       <property name="text">
+        <string>Aplicar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../assets/resources_qrc/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
