@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowYGouFr.ui'
+## Form generated from reading UI file 'mainwindowJAeIhW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(704, 555)
+        MainWindow.resize(736, 497)
         MainWindow.setStyleSheet(u"/* ===== VENTANA PRINCIPAL ===== */\n"
 "#centralwidget{\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
@@ -287,7 +287,7 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "#AddCardGroup QPushButton{\n"
-"    background: rgba(60, 63, 65, 0.5);\n"
+"    background: rgb(60, 63, 65);\n"
 "    color: #bbbbbb;\n"
 "    border: 1px solid rgba(85, 85, 85, 0.3);\n"
 "    border-radius: 10px;\n"
@@ -307,9 +307,29 @@ class Ui_MainWindow(object):
 "\n"
 "/* ESTADO PRESSED - Hundido */\n"
 "#AddCardGroup QPushButton:pressed{\n"
-"    background: rgba(45, 48, 50, 0.8);\n"
+"    background: rgb(86, 86, 86);\n"
 "}\n"
-"")
+"\n"
+"QLabel#labelN"
+                        "otificacion {\n"
+"    /* Fondo oscuro trasl\u00facido o s\u00f3lido */\n"
+"    background-color: #2b2b2b;\n"
+"    \n"
+"    /* Borde fino y elegante */\n"
+"    border: 1px solid #3d3d3d;\n"
+"    border-radius: 10px;\n"
+"    \n"
+"    /* Tipograf\u00eda clara */\n"
+"    color: #ffffff;\n"
+"    font-family: \"Segoe UI\", \"SF Pro Display\", \"Arial\";\n"
+"    font-size: 13px;\n"
+"    \n"
+"    /* Espaciado para que el texto no toque los bordes */\n"
+"    padding: 12px 18px;\n"
+"    \n"
+"    /* Simulaci\u00f3n de relieve */\n"
+"    border-bottom: 2px solid #1a1a1a;\n"
+"}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.MainLay = QHBoxLayout(self.centralwidget)
@@ -530,7 +550,7 @@ class Ui_MainWindow(object):
         self.scrollDocuments.setWidgetResizable(True)
         self.scrollAreaWidgetDocuments = QWidget()
         self.scrollAreaWidgetDocuments.setObjectName(u"scrollAreaWidgetDocuments")
-        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 543, 454))
+        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 582, 396))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetDocuments)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.AddCardGroup = QFrame(self.scrollAreaWidgetDocuments)
@@ -539,6 +559,10 @@ class Ui_MainWindow(object):
         self.AddCardGroup.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.AddCardGroup)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer)
+
         self.btnAddCard = QPushButton(self.AddCardGroup)
         self.btnAddCard.setObjectName(u"btnAddCard")
         self.btnAddCard.setMaximumSize(QSize(250, 16777215))
@@ -548,6 +572,7 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setStrikeOut(False)
         self.btnAddCard.setFont(font)
+        self.btnAddCard.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btnAddCard.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         icon9 = QIcon()
         icon9.addFile(u":/iconos/iconos/plus-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -601,7 +626,7 @@ class Ui_MainWindow(object):
         self.scrollSettings.setWidgetResizable(True)
         self.scrollAreaWidgetSettings = QWidget()
         self.scrollAreaWidgetSettings.setObjectName(u"scrollAreaWidgetSettings")
-        self.scrollAreaWidgetSettings.setGeometry(QRect(0, 0, 521, 456))
+        self.scrollAreaWidgetSettings.setGeometry(QRect(0, 0, 100, 30))
         self.scrollSettings.setWidget(self.scrollAreaWidgetSettings)
 
         self.horizontalLayout_4.addWidget(self.scrollSettings)
@@ -611,16 +636,6 @@ class Ui_MainWindow(object):
         self.PageJapon.setObjectName(u"PageJapon")
         self.horizontalLayout_3 = QHBoxLayout(self.PageJapon)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.scrollFJapon = QScrollArea(self.PageJapon)
-        self.scrollFJapon.setObjectName(u"scrollFJapon")
-        self.scrollFJapon.setWidgetResizable(True)
-        self.scrollAreaWidgetFJapon = QWidget()
-        self.scrollAreaWidgetFJapon.setObjectName(u"scrollAreaWidgetFJapon")
-        self.scrollAreaWidgetFJapon.setGeometry(QRect(0, 0, 100, 30))
-        self.scrollFJapon.setWidget(self.scrollAreaWidgetFJapon)
-
-        self.horizontalLayout_3.addWidget(self.scrollFJapon)
-
         self.CentralStack.addWidget(self.PageJapon)
 
         self.CentralHorLay.addWidget(self.CentralStack)
@@ -640,7 +655,7 @@ class Ui_MainWindow(object):
         self.btnDocuments.toggled.connect(self.CentralStack.setCurrentIndex)
         self.BtnAyuda.toggled.connect(self.CentralStack.setCurrentIndex)
 
-        self.CentralStack.setCurrentIndex(2)
+        self.CentralStack.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -652,10 +667,10 @@ class Ui_MainWindow(object):
         self.BtnSearch.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.BtnClear.setText(QCoreApplication.translate("MainWindow", u"  UniqueUser", None))
         self.btnHome.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btnDocuments.setText(QCoreApplication.translate("MainWindow", u"Documents", None))
+        self.btnDocuments.setText(QCoreApplication.translate("MainWindow", u"Cards", None))
         self.btnCalculator.setText(QCoreApplication.translate("MainWindow", u"Calculator", None))
-        self.btnJapon.setText(QCoreApplication.translate("MainWindow", u"F. Japon", None))
-        self.BtnAyuda.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.btnJapon.setText(QCoreApplication.translate("MainWindow", u"Gages", None))
+        self.BtnAyuda.setText(QCoreApplication.translate("MainWindow", u"Backup", None))
         self.BtnSalir.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.btnAddCard.setText(QCoreApplication.translate("MainWindow", u"Agregar Tarjeta", None))
     # retranslateUi

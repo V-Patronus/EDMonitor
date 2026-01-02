@@ -302,6 +302,11 @@ class CalculatorWidget(QWidget):
             btn.style().polish(btn)
 
     def eventFilter(self, obj, event):
+        # FIX: Only handle events if the calculator is actually visible. 
+        # This prevents blocking input in other parts of the application (like CreateEditCardWidget).
+        if not self.isVisible():
+            return super().eventFilter(obj, event)
+
         # If the radio line edit has focus, allow normal key handling
         try:
             app = QApplication.instance()

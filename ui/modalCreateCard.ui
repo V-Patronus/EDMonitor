@@ -384,7 +384,7 @@ QComboBox[type=&quot;combo-box&quot;] QAbstractItemView::item:selected {
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="comboBoxStyles">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>

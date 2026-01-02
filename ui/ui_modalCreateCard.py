@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'modalCreateCardnSLXVz.ui'
+## Form generated from reading UI file 'modalCreateCardWwQGEj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -345,19 +345,19 @@ class Ui_CardModal(object):
 
         self.styleLayout.addWidget(self.lblStyle)
 
-        self.comboBox = QComboBox(CardModal)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
+        self.comboBoxStyles = QComboBox(CardModal)
+        self.comboBoxStyles.addItem("")
+        self.comboBoxStyles.addItem("")
+        self.comboBoxStyles.addItem("")
+        self.comboBoxStyles.addItem("")
+        self.comboBoxStyles.setObjectName(u"comboBoxStyles")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
-        self.comboBox.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.comboBoxStyles.sizePolicy().hasHeightForWidth())
+        self.comboBoxStyles.setSizePolicy(sizePolicy)
 
-        self.styleLayout.addWidget(self.comboBox)
+        self.styleLayout.addWidget(self.comboBoxStyles)
 
 
         self.mainLayout.addLayout(self.styleLayout)
@@ -417,12 +417,12 @@ class Ui_CardModal(object):
         self.iconPdf.setText("")
         self.iconDefault.setText("")
         self.lblStyle.setText(QCoreApplication.translate("CardModal", u"Estilo", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("CardModal", u"neon", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("CardModal", u"sunset", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("CardModal", u"lava", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("CardModal", u"aurora", None))
+        self.comboBoxStyles.setItemText(0, QCoreApplication.translate("CardModal", u"neon", None))
+        self.comboBoxStyles.setItemText(1, QCoreApplication.translate("CardModal", u"sunset", None))
+        self.comboBoxStyles.setItemText(2, QCoreApplication.translate("CardModal", u"lava", None))
+        self.comboBoxStyles.setItemText(3, QCoreApplication.translate("CardModal", u"aurora", None))
 
-        self.comboBox.setProperty(u"type", QCoreApplication.translate("CardModal", u"combo-box", None))
+        self.comboBoxStyles.setProperty(u"type", QCoreApplication.translate("CardModal", u"combo-box", None))
         self.nameEdit.setPlaceholderText(QCoreApplication.translate("CardModal", u"Nombre de la tarjeta", None))
         self.descEdit.setPlaceholderText(QCoreApplication.translate("CardModal", u"Descripci\u00f3n de la tarjeta", None))
         self.pathEdit.setPlaceholderText(QCoreApplication.translate("CardModal", u"Ruta (archivo o carpeta)", None))
