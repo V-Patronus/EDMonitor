@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'gagesBoardfpTjuP.ui'
+## Form generated from reading UI file 'gagesBoardtlmpur.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_TableroGageWidget(object):
@@ -65,6 +65,17 @@ class Ui_TableroGageWidget(object):
 "     min-width: 250px;\n"
 "    }\n"
 "    QLabel.chip.found { background-color: #22c55e; color: white; }\n"
+"\n"
+"QLabel#totalPartes {\n"
+"        background-color: #2d2d2d;      /* Fondo gris oscuro */\n"
+"        color: #e0e0e0;                 /* Texto blanco suave */\n"
+"        border: 1px solid #3d3d3d;      /* Borde sutil */\n"
+"        border-radius: 10px;            /* Esquinas redondeadas */\n"
+"        padding: 5px 15px;              /* Espaciado interno */\n"
+"        font-family: 'Segoe UI', Arial; /* Tipograf\u00eda moderna */\n"
+"        font-size: 14px;\n"
+"        font-weight: bold;\n"
+"}\n"
 "   ")
         self.mainLayout = QVBoxLayout(TableroGageWidget)
         self.mainLayout.setObjectName(u"mainLayout")
@@ -96,6 +107,11 @@ class Ui_TableroGageWidget(object):
 
         self.headerLayout.addItem(self.horizontalSpacer)
 
+        self.totalPartes = QLabel(self.headerFrame)
+        self.totalPartes.setObjectName(u"totalPartes")
+
+        self.headerLayout.addWidget(self.totalPartes)
+
 
         self.mainLayout.addWidget(self.headerFrame)
 
@@ -124,5 +140,6 @@ class Ui_TableroGageWidget(object):
         self.searchButton.setText(QCoreApplication.translate("TableroGageWidget", u"Buscar", None))
         self.addButton.setText(QCoreApplication.translate("TableroGageWidget", u"A\u00f1adir", None))
         self.restoreButton.setText(QCoreApplication.translate("TableroGageWidget", u"Restaurar", None))
+        self.totalPartes.setText(QCoreApplication.translate("TableroGageWidget", u"Total de Partes: 00", None))
     # retranslateUi
 

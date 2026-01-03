@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowJAeIhW.ui'
+## Form generated from reading UI file 'mainwindowZWWQSU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -56,13 +56,18 @@ class Ui_MainWindow(object):
 "        stop:0 #2563eb, stop:1 #7c3aed);\n"
 "}\n"
 "\n"
+"#SideBarGroup, #SideBarFrame {\n"
+"border:transparent;\n"
+"}\n"
+"\n"
+"\n"
 "\n"
 "/* ===== BOTONES DEL GRUPO LATERAL - ESTADOS MODERNOS ===== */\n"
 "#SideBarGroup QPushButton{\n"
-"    background: rgba(60, 63, 65, 0.5);\n"
+"    background: rgba(60,"
+                        " 63, 65, 0.5);\n"
 "    color: #bbbbbb;\n"
-"    border: 1px solid rgba(85, 8"
-                        "5, 85, 0.3);\n"
+"    border: 1px solid rgba(85, 85, 85, 0.3);\n"
 "    border-radius: 10px;\n"
 "    padding: 10px 16px;\n"
 "    margin: 4px 8px;\n"
@@ -95,9 +100,9 @@ class Ui_MainWindow(object):
 "    padding-left: 12px;\n"
 "}\n"
 "\n"
-"/* ESTADO INACTIVO/DESENFocado - Atenuado */\n"
-"#SideBarGroup QPushButton:di"
-                        "sabled{\n"
+"/*"
+                        " ESTADO INACTIVO/DESENFocado - Atenuado */\n"
+"#SideBarGroup QPushButton:disabled{\n"
 "    background: rgba(40, 43, 45, 0.3);\n"
 "    color: #666666;\n"
 "    border-color: rgba(85, 85, 85, 0.2);\n"
@@ -130,10 +135,10 @@ class Ui_MainWindow(object):
 "    font-weight: 500;\n"
 "}\n"
 "\n"
-"#SearchLine:focus {\n"
+"#SearchLi"
+                        "ne:focus {\n"
 "    background: rgba(0, 180, 216, 0.15);\n"
-"    border-colo"
-                        "r: #00b4d8;\n"
+"    border-color: #00b4d8;\n"
 "}\n"
 "\n"
 "#SearchLine:disabled {\n"
@@ -166,11 +171,11 @@ class Ui_MainWindow(object):
 "/* ===== SCROLLBAR MODERNO - GLASSMORPHISM ===== */\n"
 "\n"
 "/* SCROLLBAR VERTICAL */\n"
-"QScrollBar:vertical {\n"
+"QScr"
+                        "ollBar:vertical {\n"
 "    background: transparent;\n"
 "    width: 14px;\n"
-""
-                        "    border: none;\n"
+"    border: none;\n"
 "    margin: 16px 0 16px 0;\n"
 "    border-radius: 7px;\n"
 "}\n"
@@ -197,9 +202,9 @@ class Ui_MainWindow(object):
 "/* Flechas del scrollbar - estilizadas */\n"
 "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
 "    background: rgba(0, 180, 216, 0.2);\n"
-"    border: 1px solid rgba(0, 180, 216, 0.4);\n"
-"    border-radius: 7px"
-                        ";\n"
+""
+                        "    border: 1px solid rgba(0, 180, 216, 0.4);\n"
+"    border-radius: 7px;\n"
 "    height: 14px;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
@@ -234,10 +239,10 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::handle:horizontal {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba(0, 119, 182, 0.5));\n"
+"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba(0, 119, 182, 0.5)"
+                        ");\n"
 "    border: 2px solid rgba(0, 180, 216, 0.6);\n"
-"    border-radi"
-                        "us: 7px;\n"
+"    border-radius: 7px;\n"
 "    min-width: 30px;    \n"
 "}\n"
 "\n"
@@ -268,10 +273,10 @@ class Ui_MainWindow(object):
 "QScrollBar::sub-line:horizontal {\n"
 "    subcontrol-position: left;\n"
 "    margin-left: 2px;\n"
-"}\n"
+"}"
+                        "\n"
 "\n"
-"QScrollBar::add-line:horizontal:hover, QScrollBar::sub-line:ho"
-                        "rizontal:hover {\n"
+"QScrollBar::add-line:horizontal:hover, QScrollBar::sub-line:horizontal:hover {\n"
 "    background: rgba(0, 212, 255, 0.3);\n"
 "    border-color: rgba(0, 212, 255, 0.6);\n"
 "}\n"
@@ -286,7 +291,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "\n"
-"#AddCardGroup QPushButton{\n"
+"QPushButton#btnAddCard{\n"
 "    background: rgb(60, 63, 65);\n"
 "    color: #bbbbbb;\n"
 "    border: 1px solid rgba(85, 85, 85, 0.3);\n"
@@ -299,19 +304,19 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* ESTADO HOVER - Elevaci\u00f3n e iluminaci\u00f3n */\n"
-"#AddCardGroup QPushButton:hover{\n"
+"QPushButton#btnAddCard:hover{\n"
 "    background: rgba(75, 79, 83, 0.7);\n"
 "    color: #ffffff;\n"
 "    border-color: rgba(119, 119, 119, 0.5);\n"
 "}\n"
 "\n"
 "/* ESTADO PRESSED - Hundido */\n"
-"#AddCardGroup QPushButton:pressed{\n"
-"    background: rgb(86, 86, 86);\n"
+"QPushButton#btnAddCard:pressed{\n"
+""
+                        "    background: rgb(86, 86, 86);\n"
 "}\n"
 "\n"
-"QLabel#labelN"
-                        "otificacion {\n"
+"QLabel#labelNotificacion {\n"
 "    /* Fondo oscuro trasl\u00facido o s\u00f3lido */\n"
 "    background-color: #2b2b2b;\n"
 "    \n"
@@ -513,16 +518,6 @@ class Ui_MainWindow(object):
         self.ViewerLay = QHBoxLayout(self.PageHome)
         self.ViewerLay.setObjectName(u"ViewerLay")
         self.ViewerLay.setContentsMargins(0, 0, 0, 0)
-        self.ScrollHome = QScrollArea(self.PageHome)
-        self.ScrollHome.setObjectName(u"ScrollHome")
-        self.ScrollHome.setWidgetResizable(True)
-        self.ScrollContentsHome = QWidget()
-        self.ScrollContentsHome.setObjectName(u"ScrollContentsHome")
-        self.ScrollContentsHome.setGeometry(QRect(0, 0, 100, 30))
-        self.ScrollHome.setWidget(self.ScrollContentsHome)
-
-        self.ViewerLay.addWidget(self.ScrollHome)
-
         self.CentralStack.addWidget(self.PageHome)
         self.PageCalculator = QWidget()
         self.PageCalculator.setObjectName(u"PageCalculator")
@@ -550,7 +545,7 @@ class Ui_MainWindow(object):
         self.scrollDocuments.setWidgetResizable(True)
         self.scrollAreaWidgetDocuments = QWidget()
         self.scrollAreaWidgetDocuments.setObjectName(u"scrollAreaWidgetDocuments")
-        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 582, 396))
+        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 586, 396))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetDocuments)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.AddCardGroup = QFrame(self.scrollAreaWidgetDocuments)
@@ -559,10 +554,6 @@ class Ui_MainWindow(object):
         self.AddCardGroup.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.AddCardGroup)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_6.addItem(self.horizontalSpacer)
-
         self.btnAddCard = QPushButton(self.AddCardGroup)
         self.btnAddCard.setObjectName(u"btnAddCard")
         self.btnAddCard.setMaximumSize(QSize(250, 16777215))
@@ -655,7 +646,7 @@ class Ui_MainWindow(object):
         self.btnDocuments.toggled.connect(self.CentralStack.setCurrentIndex)
         self.BtnAyuda.toggled.connect(self.CentralStack.setCurrentIndex)
 
-        self.CentralStack.setCurrentIndex(4)
+        self.CentralStack.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

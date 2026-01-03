@@ -2,6 +2,7 @@
   <qresource prefix="iconos">
     <file>../iconos/carpeta.svg</file>
     <file>../iconos/excel.svg</file>
+    <file>../iconos/delete-btn.svg</file>
     <file>../iconos/pdf.svg</file>
     <file>../iconos/default.svg</file>
     <file>../iconos/9-IMG-Investigation.svg</file>
