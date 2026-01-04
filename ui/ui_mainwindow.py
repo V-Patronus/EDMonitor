@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowZWWQSU.ui'
+## Form generated from reading UI file 'mainwindowxcGmjL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -15,20 +15,22 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLineEdit,
-    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
+    QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(736, 497)
+        MainWindow.resize(894, 581)
         MainWindow.setStyleSheet(u"/* ===== VENTANA PRINCIPAL ===== */\n"
 "#centralwidget{\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
 "        stop:0 #0f172a, stop:1 #1e293b);\n"
+"	border:none;\n"
 "}\n"
 "\n"
 "#CentralStack QWidget {\n"
@@ -64,8 +66,8 @@ class Ui_MainWindow(object):
 "\n"
 "/* ===== BOTONES DEL GRUPO LATERAL - ESTADOS MODERNOS ===== */\n"
 "#SideBarGroup QPushButton{\n"
-"    background: rgba(60,"
-                        " 63, 65, 0.5);\n"
+"    ba"
+                        "ckground: rgba(60, 63, 65, 0.5);\n"
 "    color: #bbbbbb;\n"
 "    border: 1px solid rgba(85, 85, 85, 0.3);\n"
 "    border-radius: 10px;\n"
@@ -97,11 +99,11 @@ class Ui_MainWindow(object):
 "    font-weight: 600;\n"
 "    /* Indicador lateral brillante */\n"
 "    border-left: 4px solid #00f2ff;\n"
-"    padding-left: 12px;\n"
+"    padding-left: 12px;"
+                        "\n"
 "}\n"
 "\n"
-"/*"
-                        " ESTADO INACTIVO/DESENFocado - Atenuado */\n"
+"/* ESTADO INACTIVO/DESENFocado - Atenuado */\n"
 "#SideBarGroup QPushButton:disabled{\n"
 "    background: rgba(40, 43, 45, 0.3);\n"
 "    color: #666666;\n"
@@ -134,9 +136,9 @@ class Ui_MainWindow(object):
 "    font-size: 14px;\n"
 "    font-weight: 500;\n"
 "}\n"
-"\n"
-"#SearchLi"
-                        "ne:focus {\n"
+""
+                        "\n"
+"#SearchLine:focus {\n"
 "    background: rgba(0, 180, 216, 0.15);\n"
 "    border-color: #00b4d8;\n"
 "}\n"
@@ -170,9 +172,9 @@ class Ui_MainWindow(object):
 "\n"
 "/* ===== SCROLLBAR MODERNO - GLASSMORPHISM ===== */\n"
 "\n"
-"/* SCROLLBAR VERTICAL */\n"
-"QScr"
-                        "ollBar:vertical {\n"
+"/* SCROLLBAR VERTIC"
+                        "AL */\n"
+"QScrollBar:vertical {\n"
 "    background: transparent;\n"
 "    width: 14px;\n"
 "    border: none;\n"
@@ -201,9 +203,9 @@ class Ui_MainWindow(object):
 "\n"
 "/* Flechas del scrollbar - estilizadas */\n"
 "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    background: rgba(0, 180, 216, 0.2);\n"
-""
-                        "    border: 1px solid rgba(0, 180, 216, 0.4);\n"
+"    background: rgba(0, 18"
+                        "0, 216, 0.2);\n"
+"    border: 1px solid rgba(0, 180, 216, 0.4);\n"
 "    border-radius: 7px;\n"
 "    height: 14px;\n"
 "    subcontrol-origin: margin;\n"
@@ -239,8 +241,8 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::handle:horizontal {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba(0, 119, 182, 0.5)"
-                        ");\n"
+"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba"
+                        "(0, 119, 182, 0.5));\n"
 "    border: 2px solid rgba(0, 180, 216, 0.6);\n"
 "    border-radius: 7px;\n"
 "    min-width: 30px;    \n"
@@ -272,9 +274,9 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    subcontrol-position: left;\n"
-"    margin-left: 2px;\n"
-"}"
-                        "\n"
+"    margi"
+                        "n-left: 2px;\n"
+"}\n"
 "\n"
 "QScrollBar::add-line:horizontal:hover, QScrollBar::sub-line:horizontal:hover {\n"
 "    background: rgba(0, 212, 255, 0.3);\n"
@@ -311,9 +313,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* ESTADO PRESSED - Hundido */\n"
-"QPushButton#btnAddCard:pressed{\n"
-""
-                        "    background: rgb(86, 86, 86);\n"
+"QPushButton#btnA"
+                        "ddCard:pressed{\n"
+"    background: rgb(86, 86, 86);\n"
 "}\n"
 "\n"
 "QLabel#labelNotificacion {\n"
@@ -334,7 +336,10 @@ class Ui_MainWindow(object):
 "    \n"
 "    /* Simulaci\u00f3n de relieve */\n"
 "    border-bottom: 2px solid #1a1a1a;\n"
-"}")
+"}\n"
+"\n"
+"\n"
+"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.MainLay = QHBoxLayout(self.centralwidget)
@@ -515,9 +520,478 @@ class Ui_MainWindow(object):
         self.CentralStack.setObjectName(u"CentralStack")
         self.PageHome = QWidget()
         self.PageHome.setObjectName(u"PageHome")
+        self.PageHome.setStyleSheet(u"")
         self.ViewerLay = QHBoxLayout(self.PageHome)
         self.ViewerLay.setObjectName(u"ViewerLay")
         self.ViewerLay.setContentsMargins(0, 0, 0, 0)
+        self.frame = QFrame(self.PageHome)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.heroFrame = QFrame(self.frame)
+        self.heroFrame.setObjectName(u"heroFrame")
+        self.heroFrame.setStyleSheet(u"\n"
+"/* HERO (solo este frame) */\n"
+"#heroFrame {\n"
+"    border-radius:20px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 #2563eb,\n"
+"                                stop:1 #06b6d4);\n"
+"    padding: 40px;\n"
+"}\n"
+"      ")
+        self.vboxLayout = QVBoxLayout(self.heroFrame)
+        self.vboxLayout.setObjectName(u"vboxLayout")
+        self.heroTitle = QLabel(self.heroFrame)
+        self.heroTitle.setObjectName(u"heroTitle")
+        self.heroTitle.setStyleSheet(u"\n"
+"#heroTitle {\n"
+"    background-color: transparent;\n"
+"    font-size: 44px;\n"
+"    font-weight: 900;\n"
+"    letter-spacing: 5px;\n"
+"    padding: 6px;\n"
+"	color:rgb(255, 255, 255);\n"
+"}\n"
+"         ")
+        self.heroTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.vboxLayout.addWidget(self.heroTitle)
+
+        self.heroSubtitle = QLabel(self.heroFrame)
+        self.heroSubtitle.setObjectName(u"heroSubtitle")
+        self.heroSubtitle.setStyleSheet(u"\n"
+"#heroSubtitle {\n"
+"    background-color: transparent;\n"
+"    border-radius:5px;\n"
+"    font-size: 16px;\n"
+"    color: #e0f2fe;\n"
+"    padding: 6px;\n"
+"}\n"
+"         ")
+        self.heroSubtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.vboxLayout.addWidget(self.heroSubtitle)
+
+
+        self.verticalLayout_3.addWidget(self.heroFrame)
+
+        self.scrollArea = QScrollArea(self.frame)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
+        self.scrollArea.setLineWidth(1)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollContent = QWidget()
+        self.scrollContent.setObjectName(u"scrollContent")
+        self.scrollContent.setGeometry(QRect(0, -332, 728, 597))
+        self._2 = QVBoxLayout(self.scrollContent)
+        self._2.setObjectName(u"_2")
+        self.lay_2 = QHBoxLayout()
+        self.lay_2.setObjectName(u"lay_2")
+        self.cardPrecision = QFrame(self.scrollContent)
+        self.cardPrecision.setObjectName(u"cardPrecision")
+        self.cardPrecision.setStyleSheet(u"\n"
+"#cardPrecision {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(14,165,233,0.3);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#cardPrecision:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._3 = QVBoxLayout(self.cardPrecision)
+        self._3.setObjectName(u"_3")
+        self.cardPrecisionInner = QFrame(self.cardPrecision)
+        self.cardPrecisionInner.setObjectName(u"cardPrecisionInner")
+        self.cardPrecisionInner.setStyleSheet(u"\n"
+"#cardPrecisionInner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._4 = QVBoxLayout(self.cardPrecisionInner)
+        self._4.setObjectName(u"_4")
+        self.cardPrecisionTitle = QLabel(self.cardPrecisionInner)
+        self.cardPrecisionTitle.setObjectName(u"cardPrecisionTitle")
+        self.cardPrecisionTitle.setStyleSheet(u"\n"
+"#cardPrecisionTitle {\n"
+"    background: transparent;\n"
+"    color: #94a3b8;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.cardPrecisionTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._4.addWidget(self.cardPrecisionTitle)
+
+        self.cardPrecisionValue = QLabel(self.cardPrecisionInner)
+        self.cardPrecisionValue.setObjectName(u"cardPrecisionValue")
+        self.cardPrecisionValue.setStyleSheet(u"\n"
+"#cardPrecisionValue {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-size: 22px;\n"
+"    font-weight: 800;\n"
+"}\n"
+"                  ")
+        self.cardPrecisionValue.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._4.addWidget(self.cardPrecisionValue)
+
+
+        self._3.addWidget(self.cardPrecisionInner)
+
+
+        self.lay_2.addWidget(self.cardPrecision)
+
+        self.cardMaterial = QFrame(self.scrollContent)
+        self.cardMaterial.setObjectName(u"cardMaterial")
+        self.cardMaterial.setStyleSheet(u"\n"
+"#cardMaterial {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(34,197,94,0.3);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#cardMaterial:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._5 = QVBoxLayout(self.cardMaterial)
+        self._5.setObjectName(u"_5")
+        self.cardMaterialInner = QFrame(self.cardMaterial)
+        self.cardMaterialInner.setObjectName(u"cardMaterialInner")
+        self.cardMaterialInner.setStyleSheet(u"\n"
+"#cardMaterialInner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._6 = QVBoxLayout(self.cardMaterialInner)
+        self._6.setObjectName(u"_6")
+        self.cardMaterialTitle = QLabel(self.cardMaterialInner)
+        self.cardMaterialTitle.setObjectName(u"cardMaterialTitle")
+        self.cardMaterialTitle.setStyleSheet(u"\n"
+"#cardMaterialTitle {\n"
+"    background: transparent;\n"
+"    color: #94a3b8;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.cardMaterialTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._6.addWidget(self.cardMaterialTitle)
+
+        self.cardMaterialValue = QLabel(self.cardMaterialInner)
+        self.cardMaterialValue.setObjectName(u"cardMaterialValue")
+        self.cardMaterialValue.setStyleSheet(u"\n"
+"#cardMaterialValue {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-size: 22px;\n"
+"    font-weight: 800;\n"
+"}\n"
+"                  ")
+        self.cardMaterialValue.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._6.addWidget(self.cardMaterialValue)
+
+
+        self._5.addWidget(self.cardMaterialInner)
+
+
+        self.lay_2.addWidget(self.cardMaterial)
+
+        self.cardProcess = QFrame(self.scrollContent)
+        self.cardProcess.setObjectName(u"cardProcess")
+        self.cardProcess.setStyleSheet(u"\n"
+"#cardProcess {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(245,158,11,0.3);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#cardProcess:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._7 = QVBoxLayout(self.cardProcess)
+        self._7.setObjectName(u"_7")
+        self.cardProcessInner = QFrame(self.cardProcess)
+        self.cardProcessInner.setObjectName(u"cardProcessInner")
+        self.cardProcessInner.setStyleSheet(u"\n"
+"#cardProcessInner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._8 = QVBoxLayout(self.cardProcessInner)
+        self._8.setObjectName(u"_8")
+        self.cardProcessTitle = QLabel(self.cardProcessInner)
+        self.cardProcessTitle.setObjectName(u"cardProcessTitle")
+        self.cardProcessTitle.setStyleSheet(u"\n"
+"#cardProcessTitle {\n"
+"    background: transparent;\n"
+"    color: #94a3b8;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.cardProcessTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._8.addWidget(self.cardProcessTitle)
+
+        self.cardProcessValue = QLabel(self.cardProcessInner)
+        self.cardProcessValue.setObjectName(u"cardProcessValue")
+        self.cardProcessValue.setStyleSheet(u"\n"
+"#cardProcessValue {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-size: 22px;\n"
+"    font-weight: 800;\n"
+"}\n"
+"                  ")
+        self.cardProcessValue.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._8.addWidget(self.cardProcessValue)
+
+
+        self._7.addWidget(self.cardProcessInner)
+
+
+        self.lay_2.addWidget(self.cardProcess)
+
+
+        self._2.addLayout(self.lay_2)
+
+        self.sectionWhat = QFrame(self.scrollContent)
+        self.sectionWhat.setObjectName(u"sectionWhat")
+        self.sectionWhat.setStyleSheet(u"\n"
+"#sectionWhat {\n"
+"    border-radius: 24px;\n"
+"    padding: 24px;\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"}\n"
+"          ")
+        self._9 = QVBoxLayout(self.sectionWhat)
+        self._9.setObjectName(u"_9")
+        self.sectionWhatTitle = QLabel(self.sectionWhat)
+        self.sectionWhatTitle.setObjectName(u"sectionWhatTitle")
+        self.sectionWhatTitle.setStyleSheet(u"\n"
+"#sectionWhatTitle {\n"
+"    font-size: 22px;\n"
+"    font-weight: 700;\n"
+"    color: #38bdf8;\n"
+"}\n"
+"             ")
+        self.sectionWhatTitle.setTextFormat(Qt.TextFormat.PlainText)
+        self.sectionWhatTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.sectionWhatTitle.setWordWrap(True)
+
+        self._9.addWidget(self.sectionWhatTitle)
+
+        self.label_2 = QLabel(self.sectionWhat)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"#label_2 {\n"
+"	color: rgb(255, 255, 255);\n"
+"}")
+        self.label_2.setTextFormat(Qt.TextFormat.PlainText)
+        self.label_2.setWordWrap(True)
+
+        self._9.addWidget(self.label_2)
+
+
+        self._2.addWidget(self.sectionWhat)
+
+        self.lay_1 = QHBoxLayout()
+        self.lay_1.setObjectName(u"lay_1")
+        self.fact1 = QFrame(self.scrollContent)
+        self.fact1.setObjectName(u"fact1")
+        self.fact1.setStyleSheet(u"\n"
+"#fact1 {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(124,58,237,0.4);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#fact1:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._10 = QVBoxLayout(self.fact1)
+        self._10.setObjectName(u"_10")
+        self.fact1Inner = QFrame(self.fact1)
+        self.fact1Inner.setObjectName(u"fact1Inner")
+        self.fact1Inner.setStyleSheet(u"\n"
+"#fact1Inner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._11 = QVBoxLayout(self.fact1Inner)
+        self._11.setObjectName(u"_11")
+        self.label = QLabel(self.fact1Inner)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"\n"
+"#label {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._11.addWidget(self.label)
+
+
+        self._10.addWidget(self.fact1Inner)
+
+
+        self.lay_1.addWidget(self.fact1)
+
+        self.fact2 = QFrame(self.scrollContent)
+        self.fact2.setObjectName(u"fact2")
+        self.fact2.setStyleSheet(u"\n"
+"#fact2 {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(236,72,153,0.4);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#fact2:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._12 = QVBoxLayout(self.fact2)
+        self._12.setObjectName(u"_12")
+        self.fact2Inner = QFrame(self.fact2)
+        self.fact2Inner.setObjectName(u"fact2Inner")
+        self.fact2Inner.setStyleSheet(u"\n"
+"#fact2Inner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._13 = QVBoxLayout(self.fact2Inner)
+        self._13.setObjectName(u"_13")
+        self.label_3 = QLabel(self.fact2Inner)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"\n"
+"#label_3 {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.label_3.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._13.addWidget(self.label_3)
+
+
+        self._12.addWidget(self.fact2Inner)
+
+
+        self.lay_1.addWidget(self.fact2)
+
+        self.fact3 = QFrame(self.scrollContent)
+        self.fact3.setObjectName(u"fact3")
+        self.fact3.setStyleSheet(u"\n"
+"#fact3 {\n"
+"    border-radius: 22px;\n"
+"    background-color: rgba(16,185,129,0.4);\n"
+"    border: 1px solid rgba(148, 163, 184, 0.25);\n"
+"    padding: 6px;\n"
+"}\n"
+"#fact3:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 1);\n"
+"    background-color: rgba(2, 6, 23, 0.85);\n"
+"}\n"
+"            ")
+        self._14 = QVBoxLayout(self.fact3)
+        self._14.setObjectName(u"_14")
+        self.fact3Inner = QFrame(self.fact3)
+        self.fact3Inner.setObjectName(u"fact3Inner")
+        self.fact3Inner.setStyleSheet(u"\n"
+"#fact3Inner {\n"
+"    border-radius: 18px;\n"
+"    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                stop:0 rgba(255,255,255,0.15),\n"
+"                                stop:1 rgba(255,255,255,0.03));\n"
+"    padding: 16px;\n"
+"}\n"
+"               ")
+        self._15 = QVBoxLayout(self.fact3Inner)
+        self._15.setObjectName(u"_15")
+        self.label_4 = QLabel(self.fact3Inner)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"\n"
+"#label_4 {\n"
+"    background: transparent;\n"
+"    color: #f8fafc;\n"
+"    font-weight: 600;\n"
+"}\n"
+"                  ")
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self._15.addWidget(self.label_4)
+
+
+        self._14.addWidget(self.fact3Inner)
+
+
+        self.lay_1.addWidget(self.fact3)
+
+
+        self._2.addLayout(self.lay_1)
+
+        self.mediaPlaceholder = QFrame(self.scrollContent)
+        self.mediaPlaceholder.setObjectName(u"mediaPlaceholder")
+        self.mediaPlaceholder.setStyleSheet(u"\n"
+"#mediaPlaceholder {\n"
+"    border: 3px dashed #38bdf8;\n"
+"    border-radius: 24px;\n"
+"    font-size: 18px;\n"
+"    color: #38bdf8;\n"
+"}\n"
+"          ")
+        self.mediaPlaceholder.setFrameShape(QFrame.Shape.StyledPanel)
+        self.mediaPlaceholder.setFrameShadow(QFrame.Shadow.Raised)
+
+        self._2.addWidget(self.mediaPlaceholder)
+
+        self.scrollArea.setWidget(self.scrollContent)
+
+        self.verticalLayout_3.addWidget(self.scrollArea)
+
+
+        self.ViewerLay.addWidget(self.frame)
+
         self.CentralStack.addWidget(self.PageHome)
         self.PageCalculator = QWidget()
         self.PageCalculator.setObjectName(u"PageCalculator")
@@ -545,7 +1019,7 @@ class Ui_MainWindow(object):
         self.scrollDocuments.setWidgetResizable(True)
         self.scrollAreaWidgetDocuments = QWidget()
         self.scrollAreaWidgetDocuments.setObjectName(u"scrollAreaWidgetDocuments")
-        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 586, 396))
+        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 179, 111))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetDocuments)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.AddCardGroup = QFrame(self.scrollAreaWidgetDocuments)
@@ -663,6 +1137,38 @@ class Ui_MainWindow(object):
         self.btnJapon.setText(QCoreApplication.translate("MainWindow", u"Gages", None))
         self.BtnAyuda.setText(QCoreApplication.translate("MainWindow", u"Backup", None))
         self.BtnSalir.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.heroTitle.setText(QCoreApplication.translate("MainWindow", u"WIRE EDM", None))
+        self.heroSubtitle.setText(QCoreApplication.translate("MainWindow", u"Electrical Discharge Machining de Alta Precisi\u00f3n", None))
+        self.cardPrecision.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.cardPrecisionInner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.cardPrecisionTitle.setText(QCoreApplication.translate("MainWindow", u"Precisi\u00f3n", None))
+        self.cardPrecisionValue.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
+        self.cardMaterial.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.cardMaterialInner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.cardMaterialTitle.setText(QCoreApplication.translate("MainWindow", u"Materiales", None))
+        self.cardMaterialValue.setText(QCoreApplication.translate("MainWindow", u"Conductores", None))
+        self.cardProcess.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.cardProcessInner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.cardProcessTitle.setText(QCoreApplication.translate("MainWindow", u"Proceso de corte", None))
+        self.cardProcessValue.setText(QCoreApplication.translate("MainWindow", u"Sin contacto", None))
+        self.sectionWhatTitle.setText(QCoreApplication.translate("MainWindow", u"\u00bfQu\u00e9 es Wire EDM?", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Una m\u00e1quina Wire EDM (Electro Discharge Machining por hilo) es una m\u00e1quina CNC de precisi\u00f3n que corta formas complejas en materiales conductores usando un fino hilo met\u00e1lico (electrodo) que genera chispas el\u00e9ctricas controladas para erosionar el material, logrando cortes extremadamente precisos, tolerancias ajustadas y geometr\u00edas dif\u00edciles de mecanizar con m\u00e9todos tradicionales, ideal para industrias como la aeroespacial y m\u00e9dica. \n"
+"\n"
+"C\u00f3mo funciona:\n"
+"1. Electrodo de Hilo: Un hilo delgado (lat\u00f3n, cobre) act\u00faa como electrodo, movi\u00e9ndose a trav\u00e9s de la pieza de trabajo.\n"
+"2. Descargas El\u00e9ctricas (Chispas): Se aplica un alto voltaje entre el hilo y la pieza, creando chispas que funden y vaporizan peque\u00f1as cantidades de material conductor.\n"
+"3. Fluido Diel\u00e9ctrico: La m\u00e1quina sumerge la pieza en un fluido (agua desionizada) que enfr\u00eda, lubrica y ayuda a eliminar las part\u00edculas erosionadas, permitiendo el "
+                        "corte y la recirculaci\u00f3n del proceso.\n"
+"4. Movimiento CNC: Un control num\u00e9rico (CNC) gu\u00eda el hilo a lo largo de una trayectoria programada, permitiendo cortes rectos, c\u00f3nicos y formas tridimensionales.", None))
+        self.fact1.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.fact1Inner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"No usa fuerza mec\u00e1nica", None))
+        self.fact2.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.fact2Inner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Corta aceros templados", None))
+        self.fact3.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardRoot", None))
+        self.fact3Inner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Geometr\u00edas complejas", None))
         self.btnAddCard.setText(QCoreApplication.translate("MainWindow", u"Agregar Tarjeta", None))
     # retranslateUi
 

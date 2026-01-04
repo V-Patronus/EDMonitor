@@ -10,144 +10,37 @@
     <height>623</height>
    </rect>
   </property>
-  <property name="styleSheet">
-   <string notr="true">/* =========================
-   GLOBAL
-========================= */
-QWidget {
-    background-color: #020617;
-    color: #e5e7eb;
-    font-family: &quot;Segoe UI&quot;;
-}
-
-/* =========================
-   HERO
-========================= */
-#heroFrame {
-	border-radius:20px;
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:1,
-        stop:0 #2563eb,
-        stop:1 #06b6d4
-    );
-    padding: 40px;
-}
-
-#heroTitle {
-	border-radius:20px;
- 	 background-color: transparent;
-    font-size: 44px;
-    font-weight: 900;
-    letter-spacing: 5px;
-	 padding: 6px;
-}
-
-#heroSubtitle {
-	 background-color: transparent;
-	border-radius:5px;
-    font-size: 16px;
-    color: #e0f2fe;
-	 padding: 6px;
-}
-
-/* =========================
-   CARD ROOT (GLASS + NEON)
-========================= */
-QFrame[role=&quot;cardRoot&quot;] {
-    border-radius: 22px;
-    background-color: rgba(2, 6, 23, 0.65);
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    padding: 6px;
-}
-
-QFrame[role=&quot;cardRoot&quot;]:hover {
-    border: 1px solid rgba(56, 189, 248, 1);
-    background-color: rgba(2, 6, 23, 0.85);
-}
-
-/* =========================
-   CARD INNER (GLASS)
-========================= */
-QFrame[role=&quot;cardInner&quot;] {
-    border-radius: 18px;
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:1,
-        stop:0 rgba(255,255,255,0.15),
-        stop:1 rgba(255,255,255,0.03)
-    );
-    padding: 16px;
-}
-
-/* =========================
-   TEXT
-========================= */
-QFrame[role=&quot;cardInner&quot;] QLabel {
-    background: transparent;
-    color: #f8fafc;
-    font-weight: 600;
-}
-
-#cardPrecisionTitle,
-#cardMaterialTitle,
-#cardProcessTitle {
-    color: #94a3b8;
-    font-size: 14px;
-}
-
-#cardPrecisionValue,
-#cardMaterialValue,
-#cardProcessValue {
-    font-size: 22px;
-    font-weight: 800;
-}
-
-/* =========================
-   NEON COLORS
-========================= */
-#cardPrecision { background-color: rgba(14,165,233,0.3); }
-#cardMaterial  { background-color: rgba(34,197,94,0.3); }
-#cardProcess   { background-color: rgba(245,158,11,0.3); }
-
-#fact1 { background-color: rgba(124,58,237,0.4); }
-#fact2 { background-color: rgba(236,72,153,0.4); }
-#fact3 { background-color: rgba(16,185,129,0.4); }
-
-/* =========================
-   NOTE SECTION
-========================= */
-#sectionWhat {
-    border-radius: 24px;
-    padding: 24px;
-    border: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-#sectionWhatTitle {
-    font-size: 22px;
-    font-weight: 700;
-    color: #38bdf8;
-}
-
-#sectionWhatText {
-    line-height: 1.6em;
-}
-
-/* =========================
-   MEDIA
-========================= */
-#mediaPlaceholder {
-    border: 3px dashed #38bdf8;
-    border-radius: 24px;
-    font-size: 18px;
-    color: #38bdf8;
-}
-</string>
-  </property>
+  <!-- Sin hoja global -->
   <layout class="QVBoxLayout" name="mainLayout">
    <item>
+    <!-- HERO -->
     <widget class="QFrame" name="heroFrame">
+     <property name="styleSheet">
+      <string notr="true">
+/* HERO (solo este frame) */
+#heroFrame {
+    border-radius:20px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #2563eb,
+                                stop:1 #06b6d4);
+    padding: 40px;
+}
+      </string>
+     </property>
      <layout class="QVBoxLayout">
       <item>
        <widget class="QLabel" name="heroTitle">
+        <property name="styleSheet">
+         <string notr="true">
+#heroTitle {
+    background-color: transparent;
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    padding: 6px;
+}
+         </string>
+        </property>
         <property name="text">
          <string>WIRE EDM</string>
         </property>
@@ -158,6 +51,17 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
       </item>
       <item>
        <widget class="QLabel" name="heroSubtitle">
+        <property name="styleSheet">
+         <string notr="true">
+#heroSubtitle {
+    background-color: transparent;
+    border-radius:5px;
+    font-size: 16px;
+    color: #e0f2fe;
+    padding: 6px;
+}
+         </string>
+        </property>
         <property name="text">
          <string>Electrical Discharge Machining de Alta Precisión</string>
         </property>
@@ -169,6 +73,8 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
      </layout>
     </widget>
    </item>
+
+   <!-- SCROLL -->
    <item>
     <widget class="QScrollArea" name="scrollArea">
      <property name="frameShape">
@@ -183,39 +89,65 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
      <widget class="QWidget" name="scrollContent">
       <property name="geometry">
        <rect>
-        <x>-393</x>
+        <x>0</x>
         <y>0</y>
-        <width>1126</width>
-        <height>775</height>
+        <width>733</width>
+        <height>597</height>
        </rect>
       </property>
       <layout class="QVBoxLayout">
+       <!-- CARDS -->
        <item>
         <layout class="QHBoxLayout" name="lay_2">
          <item>
           <widget class="QFrame" name="cardPrecision">
+           <property name="styleSheet">
+            <string notr="true">
+#cardPrecision {
+    border-radius: 22px;
+    background-color: rgba(14,165,233,0.3);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#cardPrecision:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="cardPrecisionInner">
+              <property name="styleSheet">
+               <string notr="true">
+#cardPrecisionInner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
-                <widget class="QLabel" name="cardPrecisionIcon">
-                 <property name="text">
-                  <string>🎯</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="cardPrecisionTitle">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardPrecisionTitle {
+    background: transparent;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Precisión</string>
                  </property>
@@ -226,6 +158,16 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
                </item>
                <item>
                 <widget class="QLabel" name="cardPrecisionValue">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardPrecisionValue {
+    background: transparent;
+    color: #f8fafc;
+    font-size: 22px;
+    font-weight: 800;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Alta</string>
                  </property>
@@ -240,30 +182,57 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
            </layout>
           </widget>
          </item>
+
+         <!-- cardMaterial igual que arriba pero con su color -->
          <item>
           <widget class="QFrame" name="cardMaterial">
+           <property name="styleSheet">
+            <string notr="true">
+#cardMaterial {
+    border-radius: 22px;
+    background-color: rgba(34,197,94,0.3);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#cardMaterial:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="cardMaterialInner">
+              <property name="styleSheet">
+               <string notr="true">
+#cardMaterialInner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
-                <widget class="QLabel" name="cardMaterialIcon">
-                 <property name="text">
-                  <string>🧲</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="cardMaterialTitle">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardMaterialTitle {
+    background: transparent;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Materiales</string>
                  </property>
@@ -274,6 +243,16 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
                </item>
                <item>
                 <widget class="QLabel" name="cardMaterialValue">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardMaterialValue {
+    background: transparent;
+    color: #f8fafc;
+    font-size: 22px;
+    font-weight: 800;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Conductores</string>
                  </property>
@@ -288,30 +267,57 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
            </layout>
           </widget>
          </item>
+
+         <!-- cardProcess -->
          <item>
           <widget class="QFrame" name="cardProcess">
+           <property name="styleSheet">
+            <string notr="true">
+#cardProcess {
+    border-radius: 22px;
+    background-color: rgba(245,158,11,0.3);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#cardProcess:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="cardProcessInner">
+              <property name="styleSheet">
+               <string notr="true">
+#cardProcessInner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
-                <widget class="QLabel" name="cardProcessIcon">
-                 <property name="text">
-                  <string>⚙️</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="cardProcessTitle">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardProcessTitle {
+    background: transparent;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Proceso de corte</string>
                  </property>
@@ -322,6 +328,16 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
                </item>
                <item>
                 <widget class="QLabel" name="cardProcessValue">
+                 <property name="styleSheet">
+                  <string notr="true">
+#cardProcessValue {
+    background: transparent;
+    color: #f8fafc;
+    font-size: 22px;
+    font-weight: 800;
+}
+                  </string>
+                 </property>
                  <property name="text">
                   <string>Sin contacto</string>
                  </property>
@@ -338,58 +354,126 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
          </item>
         </layout>
        </item>
+
+       <!-- SECTION ¿Qué es? -->
        <item>
         <widget class="QFrame" name="sectionWhat">
+         <property name="styleSheet">
+          <string notr="true">
+#sectionWhat {
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+          </string>
+         </property>
          <layout class="QVBoxLayout">
           <item>
            <widget class="QLabel" name="sectionWhatTitle">
+            <property name="styleSheet">
+             <string notr="true">
+#sectionWhatTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #38bdf8;
+}
+             </string>
+            </property>
             <property name="text">
              <string>¿Qué es Wire EDM?</string>
             </property>
+            <property name="textFormat">
+             <enum>Qt::TextFormat::PlainText</enum>
+            </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">
+#sectionWhatText {
+    line-height: 1.6em;
+}
+             </string>
+            </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:700; color:#2e86c1;&quot;&gt;⚡ EDM Wire (Electroerosión por Hilo)&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;El &lt;span style=&quot; font-weight:700;&quot;&gt;EDM Wire&lt;/span&gt; es un proceso de mecanizado de precisión que utiliza descargas eléctricas controladas para cortar materiales conductores duros, creando geometrías complejas con acabados finos. ⚙️ &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;🔍 Significado:&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Electrical Discharge Machining&lt;/span&gt; (Mecanizado por Descarga Eléctrica). &lt;/p&gt;&lt;h3 style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700; color:#28b463;&quot;&gt;🚀 ¿Cómo funciona?&lt;/span&gt;&lt;/h3&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;⚡ Chispas Eléctricas:&lt;/span&gt; Corriente entre un hilo (latón/molibdeno) y la pieza. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;🔥 Erosión:&lt;/span&gt; Las chispas vaporizan el material siguiendo la trayectoria. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;💧 Fluido Dieléctrico:&lt;/span&gt; Agua desionizada que enfría y limpia el residuo. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;🎯 Corte Preciso:&lt;/span&gt; Movimiento continuo guiado por &lt;span style=&quot; font-weight:700;&quot;&gt;CNC&lt;/span&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;h3 style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700; color:#e67e22;&quot;&gt;🛠️ Aplicaciones Comunes&lt;/span&gt;&lt;/h3&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;🏗️ Fabricación de &lt;span style=&quot; font-weight:700;&quot;&gt;moldes y matrices&lt;/span&gt;. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;✈️ Componentes &lt;span style=&quot; font-weight:700;&quot;&gt;aeroespaciales y médicos&lt;/span&gt;. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;✂️ Herramientas de corte, punzones y troqueles. &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;💎 Piezas con &lt;span style=&quot; font-weight:700;&quot;&gt;detalles ultra-finos&lt;/span&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;📌 En resumen:&lt;/span&gt; Tecnología avanzada para cortar metales con precisión extrema, sin contacto físico, usando energía de chispas. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>Una máquina Wire EDM (Electro Discharge Machining por hilo) es una máquina CNC de precisión que corta formas complejas en materiales conductores usando un fino hilo metálico (electrodo) que genera chispas eléctricas controladas para erosionar el material, logrando cortes extremadamente precisos, tolerancias ajustadas y geometrías difíciles de mecanizar con métodos tradicionales, ideal para industrias como la aeroespacial y médica. 
+
+Cómo funciona:
+1. Electrodo de Hilo: Un hilo delgado (latón, cobre) actúa como electrodo, moviéndose a través de la pieza de trabajo.
+2. Descargas Eléctricas (Chispas): Se aplica un alto voltaje entre el hilo y la pieza, creando chispas que funden y vaporizan pequeñas cantidades de material conductor.
+3. Fluido Dieléctrico: La máquina sumerge la pieza en un fluido (agua desionizada) que enfría, lubrica y ayuda a eliminar las partículas erosionadas, permitiendo el corte y la recirculación del proceso.
+4. Movimiento CNC: Un control numérico (CNC) guía el hilo a lo largo de una trayectoria programada, permitiendo cortes rectos, cónicos y formas tridimensionales.</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::TextFormat::RichText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
+
+       <!-- 3 FACTS -->
        <item>
         <layout class="QHBoxLayout" name="lay_1">
          <item>
           <widget class="QFrame" name="fact1">
+           <property name="styleSheet">
+            <string notr="true">
+#fact1 {
+    border-radius: 22px;
+    background-color: rgba(124,58,237,0.4);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#fact1:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="fact1Inner">
+              <property name="styleSheet">
+               <string notr="true">
+#fact1Inner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
                 <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>⚡</string>
+                 <property name="styleSheet">
+                  <string notr="true">
+#label {
+    background: transparent;
+    color: #f8fafc;
+    font-weight: 600;
+}
+                  </string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label">
                  <property name="text">
                   <string>No usa fuerza mecánica</string>
                  </property>
@@ -404,30 +488,55 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
            </layout>
           </widget>
          </item>
+
          <item>
           <widget class="QFrame" name="fact2">
+           <property name="styleSheet">
+            <string notr="true">
+#fact2 {
+    border-radius: 22px;
+    background-color: rgba(236,72,153,0.4);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#fact2:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="fact2Inner">
+              <property name="styleSheet">
+               <string notr="true">
+#fact2Inner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
                 <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>🔩</string>
+                 <property name="styleSheet">
+                  <string notr="true">
+#label {
+    background: transparent;
+    color: #f8fafc;
+    font-weight: 600;
+}
+                  </string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label">
                  <property name="text">
                   <string>Corta aceros templados</string>
                  </property>
@@ -442,30 +551,55 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
            </layout>
           </widget>
          </item>
+
          <item>
           <widget class="QFrame" name="fact3">
+           <property name="styleSheet">
+            <string notr="true">
+#fact3 {
+    border-radius: 22px;
+    background-color: rgba(16,185,129,0.4);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px;
+}
+#fact3:hover {
+    border: 1px solid rgba(56, 189, 248, 1);
+    background-color: rgba(2, 6, 23, 0.85);
+}
+            </string>
+           </property>
            <property name="role" stdset="0">
             <string>cardRoot</string>
            </property>
            <layout class="QVBoxLayout">
             <item>
              <widget class="QFrame" name="fact3Inner">
+              <property name="styleSheet">
+               <string notr="true">
+#fact3Inner {
+    border-radius: 18px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 rgba(255,255,255,0.15),
+                                stop:1 rgba(255,255,255,0.03));
+    padding: 16px;
+}
+               </string>
+              </property>
               <property name="role" stdset="0">
                <string>cardInner</string>
               </property>
               <layout class="QVBoxLayout">
                <item>
                 <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>📐</string>
+                 <property name="styleSheet">
+                  <string notr="true">
+#label {
+    background: transparent;
+    color: #f8fafc;
+    font-weight: 600;
+}
+                  </string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignmentFlag::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label">
                  <property name="text">
                   <string>Geometrías complejas</string>
                  </property>
@@ -482,8 +616,20 @@ QFrame[role=&quot;cardInner&quot;] QLabel {
          </item>
         </layout>
        </item>
+
+       <!-- MEDIA PLACEHOLDER -->
        <item>
         <widget class="QFrame" name="mediaPlaceholder">
+         <property name="styleSheet">
+          <string notr="true">
+#mediaPlaceholder {
+    border: 3px dashed #38bdf8;
+    border-radius: 24px;
+    font-size: 18px;
+    color: #38bdf8;
+}
+          </string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Shape::StyledPanel</enum>
          </property>

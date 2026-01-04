@@ -3,7 +3,8 @@ import logging
 import traceback
 import faulthandler
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel
-from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal
+import re
+from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication
 from PySide6.QtGui import QPixmap
 from ui.ui_mainwindow import Ui_MainWindow
 from widgets.CalculatorWidget import CalculatorWidget
@@ -36,7 +37,16 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
         super(MyMainWindow, self).__init__(parent)
-        self.setupUi(self)
+        # Initialize UI normally. We removed the runtime proxies for
+        # `QLabel.setText`/`QPushButton.setText` because the project will
+        # not use enriched/HTML labels and these proxies interfered with
+        # styles on some pages.
+        try:
+            self.setupUi(self)
+        except Exception:
+            # If setup fails, re-raise after logging the traceback for debugging.
+            traceback.print_exc()
+            raise
         # --- Asynchronous Database Setup (deferred start) ---
         # We prepare worker/thread and connect signals here but DO NOT start the thread yet.
         self.loading_status = {
@@ -187,20 +197,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         self.PageSettings.setStyleSheet(bg_style)
         self.PageJapon.setStyleSheet(bg_style)
 
-        # Add a lightweight placeholder for Wire EDM to avoid crashes from the full UI
-        try:
-            wire_widget = QWidget()
-            placeholder = QLabel("Wire EDM (cargado de forma diferida)", wire_widget)
-            placeholder.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            if self.PageHome.layout():
-                self.PageHome.layout().addWidget(wire_widget)
-            else:
-                try:
-                    self.ViewerLay.addWidget(wire_widget)
-                except Exception:
-                    pass
-        except Exception:
-            pass
+        # (Wire EDM UI not added) PageHome keeps its original layout and widgets
 
         
 

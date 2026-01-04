@@ -1,4 +1,3 @@
-"""
-WireEDMWidget was added experimentally and is now removed.
-This placeholder prevents import errors if left referenced.
+"""No-op placeholder for WireEDMWidget (removed).
+This file left minimal to avoid import errors from previous edits.
 """
