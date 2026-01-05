@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BackupRecoveryWidget</class>
+ <widget class="QWidget" name="BackupRecoveryWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>529</width>
+    <height>219</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Backup &amp; Export</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #1e1e1e; color: #ffffff; font-size: 10pt;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupCards">
+     <property name="styleSheet">
+      <string notr="true">
+     QGroupBox {
+      border: 1px solid #555;
+      margin-top: 10px;
+      font-weight: bold;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 10px;
+      padding: 0 5px 0 5px;
+     }
+    </string>
+     </property>
+     <property name="title">
+      <string>Base de Datos - Tarjetas (Cards)</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="leCards">
+        <property name="styleSheet">
+         <string notr="true">
+      QLineEdit {
+       background-color: #2a2a2a;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+       padding: 4px;
+      }
+     </string>
+        </property>
+        <property name="placeholderText">
+         <string>Ruta para guardar Excel de Cards...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnBrowseCards">
+        <property name="styleSheet">
+         <string notr="true">
+      QPushButton {
+       background-color: #3c3c3c;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #505050; }
+      QPushButton:pressed { background-color: #2a2a2a; }
+     </string>
+        </property>
+        <property name="text">
+         <string>Examinar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnExcelCards">
+        <property name="styleSheet">
+         <string notr="true">
+      QPushButton {
+       background-color: #2a4d6b;
+       color: #ffffff;
+       border: 1px solid #4a6b8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #3a5d7b; }
+      QPushButton:pressed { background-color: #1a3d5b; }
+     </string>
+        </property>
+        <property name="text">
+         <string>Exportar Excel Cards</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupPartes">
+     <property name="styleSheet">
+      <string notr="true">
+     QGroupBox {
+      border: 1px solid #555;
+      margin-top: 10px;
+      font-weight: bold;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 10px;
+      padding: 0 5px 0 5px;
+     }
+    </string>
+     </property>
+     <property name="title">
+      <string>Base de Datos - Partes</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="lePartes">
+        <property name="styleSheet">
+         <string notr="true">
+      QLineEdit {
+       background-color: #2a2a2a;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+       padding: 4px;
+      }
+     </string>
+        </property>
+        <property name="placeholderText">
+         <string>Ruta para guardar Excel de Partes...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnBrowsePartes">
+        <property name="styleSheet">
+         <string notr="true">
+      QPushButton {
+       background-color: #3c3c3c;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #505050; }
+      QPushButton:pressed { background-color: #2a2a2a; }
+     </string>
+        </property>
+        <property name="text">
+         <string>Examinar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnExcelPartes">
+        <property name="styleSheet">
+         <string notr="true">
+      QPushButton {
+       background-color: #2a4d6b;
+       color: #ffffff;
+       border: 1px solid #4a6b8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #3a5d7b; }
+      QPushButton:pressed { background-color: #1a3d5b; }
+     </string>
+        </property>
+        <property name="text">
+         <string>Exportar Excel Partes</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPDFPartes">
+        <property name="styleSheet">
+         <string notr="true">
+      QPushButton {
+       background-color: #5a2a6b;
+       color: #ffffff;
+       border: 1px solid #7a4a8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #6a3a7b; }
+      QPushButton:pressed { background-color: #4a1a5b; }
+     </string>
+        </property>
+        <property name="text">
+         <string>Generar PDF Partes</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="logOutput">
+     <property name="styleSheet">
+      <string notr="true">
+     QTextEdit {
+      background-color: #0d0d0d;
+      color: #00ff00;
+      border: 1px solid #555;
+      font-family: monospace;
+      font-size: 9pt;
+     }
+    </string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Estado de operaciones...</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

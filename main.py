@@ -2,11 +2,15 @@ import sys
 import logging
 import traceback
 import faulthandler
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel, QFileDialog
 import re
-from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication
+from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication, QObject, Slot
 from PySide6.QtGui import QPixmap
+import os
+import sqlite3
+from datetime import datetime
 from ui.ui_mainwindow import Ui_MainWindow
+from workers.backup_manager import BackupManager
 from widgets.CalculatorWidget import CalculatorWidget
 from widgets.CreateEditCardWidget import CreateEditCardWidget
 from widgets.CardWidget import CardWidget
@@ -47,6 +51,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             # If setup fails, re-raise after logging the traceback for debugging.
             traceback.print_exc()
             raise
+        # No aliasing: use `leCards_1` for cards and `lePartes_2` for partes
         # --- Asynchronous Database Setup (deferred start) ---
         # We prepare worker/thread and connect signals here but DO NOT start the thread yet.
         self.loading_status = {
@@ -58,6 +63,26 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         self.db_thread = QThread()
         self.db_worker = DatabaseWorker()
         self.db_worker.moveToThread(self.db_thread)
+
+        # Setup Backup Manager in its own thread to keep logic out of main.py
+        self.backup_thread = QThread()
+        self.backup_manager = BackupManager()
+        self.backup_manager.moveToThread(self.backup_thread)
+        # Connect backup signals
+        self.backup_manager.finished.connect(lambda ok, msg: self.append_log(msg, level="success" if ok else "error"))
+        self.backup_manager.progress.connect(lambda p, msg: self.append_log(msg, level="info"))
+        self.backup_manager.paths_loaded.connect(self._on_backup_paths_loaded)
+        # Ensure paths are loaded after we've connected the slot (run in worker thread)
+        try:
+            from PySide6.QtCore import QMetaObject, Qt as _Qt
+            QMetaObject.invokeMethod(self.backup_manager, "_load_paths", _Qt.QueuedConnection)
+        except Exception:
+            try:
+                # fallback: call directly
+                self.backup_manager._load_paths()
+            except Exception:
+                pass
+        self.backup_thread.start()
 
         
 
@@ -226,6 +251,11 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             
         self.scrollCalculator.setWidgetResizable(True)
         self.setup_sidebar_animation()
+        # Setup backup handlers (buttons in PageSettings -> frameBackup)
+        try:
+            self.setup_backup_handlers()
+        except Exception:
+            pass
 
     def toggle_add_card_mode(self):
         """Toggles between View Mode and Create Mode when the header button is clicked."""
@@ -558,12 +588,163 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             self.CentralStack.setCurrentWidget(page)
         except Exception:
             pass
+    
+    # ---------------- Backup / Export Helpers ----------------
+    def setup_backup_handlers(self):
+        # Connect buttons from UI (frameBackup) to handlers
+        try:
+            self.btnBrowseCards_1.clicked.connect(self.on_browse_cards)
+        except Exception:
+            pass
+        try:
+            self.btnExcelCards_1.clicked.connect(self.on_export_cards_excel)
+        except Exception:
+            pass
+        # Older/alternate UI may expose *_2 variants; connect them too but keep logic
+        try:
+            self.btnBrowseCards_2.clicked.connect(self.on_browse_cards)
+        except Exception:
+            pass
+        try:
+            self.btnExcelCards_2.clicked.connect(self.on_export_cards_excel)
+        except Exception:
+            pass
+        try:
+            self.btnBrowsePartes_2.clicked.connect(self.on_browse_partes)
+        except Exception:
+            pass
+        try:
+            self.btnExcelPartes_2.clicked.connect(self.on_export_partes_excel)
+        except Exception:
+            pass
+        try:
+            self.btnPDFPartes_2.clicked.connect(self.on_export_partes_pdf)
+        except Exception:
+            pass
+
+        # Connect the existing clear button named 'limpiarbtn' to clear the log
+        try:
+            if hasattr(self, 'limpiarbtn'):
+                try:
+                    self.limpiarbtn.clicked.connect(lambda: self.logOutput.clear())
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+    def _on_backup_paths_loaded(self, paths: dict):
+        try:
+            cards = paths.get('cards', '')
+            partes = paths.get('partes', '')
+            if cards:
+                try:
+                    self.leCards_1.setText(cards)
+                except Exception:
+                    pass
+            if partes:
+                try:
+                    self.lePartes_2.setText(partes)
+                except Exception:
+                    pass
+            self.append_log('Rutas de backup cargadas.', level='info')
+        except Exception:
+            pass
+
+    def on_browse_cards(self):
+        folder = QFileDialog.getExistingDirectory(self, "Seleccionar carpeta para Cards")
+        if folder:
+            try:
+                self.leCards_1.setText(folder)
+            except Exception:
+                pass
+            try:
+                # persist via backup manager
+                self.backup_manager.set_cards_path.emit(folder)
+            except Exception:
+                pass
+
+    def on_browse_partes(self):
+        folder = QFileDialog.getExistingDirectory(self, "Seleccionar carpeta para Partes")
+        if folder:
+            try:
+                self.lePartes_2.setText(folder)
+            except Exception:
+                pass
+            try:
+                self.backup_manager.set_partes_path.emit(folder)
+            except Exception:
+                pass
+
+    def on_export_cards_excel(self):
+        outdir = (self.leCards_1.text() or "").strip()
+        if not outdir or not os.path.isdir(outdir):
+            self.append_log("Ruta inválida para guardar Excel de Cards.", level="error")
+            return
+        fname = os.path.join(outdir, f"cards_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx")
+        try:
+            self.backup_manager.export_cards_requested.emit(fname)
+            self.append_log(f"Exportando Cards a: {fname}", level="info")
+        except Exception as e:
+            self.append_log(str(e), level="error")
+
+    def on_export_partes_excel(self):
+        outdir = (self.lePartes_2.text() or "").strip()
+        if not outdir or not os.path.isdir(outdir):
+            self.append_log("Ruta inválida para guardar Excel de Partes.", level="error")
+            return
+        fname = os.path.join(outdir, f"partes_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx")
+        try:
+            self.backup_manager.export_partes_requested.emit(fname)
+            self.append_log(f"Exportando Partes a: {fname}", level="info")
+        except Exception as e:
+            self.append_log(str(e), level="error")
+
+    def on_export_partes_pdf(self):
+        outdir = (self.lePartes_2.text() or "").strip()
+        if not outdir or not os.path.isdir(outdir):
+            self.append_log("Ruta inválida para generar PDF de Partes.", level="error")
+            return
+        fname = os.path.join(outdir, "partes_report.pdf")
+        try:
+            self.backup_manager.export_partes_pdf_requested.emit(fname)
+            self.append_log(f"Generando PDF Partes: {fname}", level="info")
+        except Exception as e:
+            self.append_log(str(e), level="error")
 
     
 
+    def append_log(self, text, level="info"):
+        colors = {"info":"#FFFFFF","success":"#00FF00","error":"#FF3333"}
+        ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        color = colors.get(level, "#FFFFFF")
+        html = f"<span style='color:{color}'>[{ts}] {text}</span>"
+        try:
+            self.logOutput.append(html)
+            self.logOutput.ensureCursorVisible()
+        except Exception:
+            pass
+
+    def on_app_quit(self):
+        try:
+            self.append_log('Solicitando cancelación de tareas en segundo plano...', level='info')
+            if hasattr(self, 'backup_manager') and self.backup_manager is not None:
+                try:
+                    self.backup_manager.cancel_requested.emit()
+                except Exception:
+                    try:
+                        # fallback direct call to set flag
+                        self.backup_manager._on_request_cancel()
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setStyle("Fusion")
+    # app.setStyle("Fusion")
     app.setQuitOnLastWindowClosed(False)
 
     # Circular Splash
@@ -609,6 +790,12 @@ if __name__ == "__main__":
        
     window.initial_load_complete.connect(on_loaded)
 
+    # Ensure BackupManager receives a cancel request when the app is quitting
+    try:
+        app.aboutToQuit.connect(window.on_app_quit)
+    except Exception:
+        pass
+
     # Fallback
     def fallback_show():
         if not window.isVisible():
@@ -631,6 +818,10 @@ if __name__ == "__main__":
     if hasattr(window, 'db_thread'):
         cleanup_thread(window.db_thread)
     
+    # Clean up Backup Manager Thread
+    if hasattr(window, 'backup_thread'):
+        cleanup_thread(window.backup_thread)
+
     # Clean up Gage Board Thread
     if hasattr(window, 'tablero_gage_widget') and hasattr(window.tablero_gage_widget, 'worker_thread'):
         cleanup_thread(window.tablero_gage_widget.worker_thread)

@@ -709,7 +709,7 @@ QLabel#labelNotificacion {
           <item>
            <widget class="QStackedWidget" name="CentralStack">
             <property name="currentIndex">
-             <number>0</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="PageHome">
              <property name="styleSheet">
@@ -747,7 +747,7 @@ QLabel#labelNotificacion {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
                                 stop:0 #2563eb,
                                 stop:1 #06b6d4);
-    padding: 40px;
+    padding: 5px;
 }
       </string>
                    </property>
@@ -813,7 +813,7 @@ QLabel#labelNotificacion {
                     <property name="geometry">
                      <rect>
                       <x>0</x>
-                      <y>-332</y>
+                      <y>0</y>
                       <width>728</width>
                       <height>597</height>
                      </rect>
@@ -1367,8 +1367,8 @@ Cómo funciona:
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>744</width>
+                   <height>480</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_4"/>
@@ -1389,8 +1389,8 @@ Cómo funciona:
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>179</width>
-                   <height>111</height>
+                   <width>744</width>
+                   <height>480</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout">
@@ -1500,10 +1500,253 @@ Cómo funciona:
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>100</width>
-                   <height>30</height>
+                   <width>744</width>
+                   <height>480</height>
                   </rect>
                  </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QFrame" name="frameBackup">
+                    <property name="frameShape">
+                     <enum>QFrame::Shape::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Shadow::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                     <item>
+                      <widget class="QGroupBox" name="groupCards">
+                       <property name="styleSheet">
+                        <string notr="true">
+     QGroupBox {
+      border: 1px solid #555;
+      margin-top: 10px;
+      font-weight: bold;
+	border-radius:10px;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 10px;
+      padding: 0 5px 0 5px;
+	color: rgb(255, 255, 255);
+     }
+    </string>
+                       </property>
+                       <property name="title">
+                        <string>Base de Datos - Tarjetas (Cards)</string>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_11">
+                        <item>
+                         <widget class="QLineEdit" name="leCards_1">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QLineEdit {
+       background-color: #2a2a2a;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+       padding: 4px;
+      }
+     </string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Ruta para guardar Excel de Cards...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnBrowseCards_1">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QPushButton {
+       background-color: #3c3c3c;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #505050; }
+      QPushButton:pressed { background-color: #2a2a2a; }
+     </string>
+                          </property>
+                          <property name="text">
+                           <string>Examinar</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnExcelCards_1">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QPushButton {
+       background-color: #2a4d6b;
+       color: #ffffff;
+       border: 1px solid #4a6b8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #3a5d7b; }
+      QPushButton:pressed { background-color: #1a3d5b; }
+     </string>
+                          </property>
+                          <property name="text">
+                           <string>Exportar Excel Cards</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QGroupBox" name="groupPartes">
+                       <property name="styleSheet">
+                        <string notr="true">
+     QGroupBox {
+      border: 1px solid #555;
+      margin-top: 10px;
+      font-weight: bold;
+	border-radius:10px;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 10px;
+      padding: 0 5px 0 5px;
+	
+	color: rgb(255, 255, 255);
+     }
+    </string>
+                       </property>
+                       <property name="title">
+                        <string>Base de Datos - Partes</string>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_10">
+                        <item>
+                         <widget class="QLineEdit" name="lePartes_2">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QLineEdit {
+       background-color: #2a2a2a;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+       padding: 4px;
+      }
+     </string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Ruta para guardar Excel de Partes...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnBrowsePartes_2">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QPushButton {
+       background-color: #3c3c3c;
+       color: #ffffff;
+       border: 1px solid #555;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #505050; }
+      QPushButton:pressed { background-color: #2a2a2a; }
+     </string>
+                          </property>
+                          <property name="text">
+                           <string>Examinar</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnExcelPartes_2">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QPushButton {
+       background-color: #2a4d6b;
+       color: #ffffff;
+       border: 1px solid #4a6b8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #3a5d7b; }
+      QPushButton:pressed { background-color: #1a3d5b; }
+     </string>
+                          </property>
+                          <property name="text">
+                           <string>Exportar Excel Partes</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnPDFPartes_2">
+                          <property name="styleSheet">
+                           <string notr="true">
+      QPushButton {
+       background-color: #5a2a6b;
+       color: #ffffff;
+       border: 1px solid #7a4a8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #6a3a7b; }
+      QPushButton:pressed { background-color: #4a1a5b; }
+     </string>
+                          </property>
+                          <property name="text">
+                           <string>Generar PDF Partes</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QTextEdit" name="logOutput">
+                       <property name="styleSheet">
+                        <string notr="true">
+     QTextEdit {
+      background-color: #0d0d0d;
+      color: #00ff00;
+      border: 1px solid #555;
+      font-family: monospace;
+      font-size: 9pt;
+	border-radius:10px;
+     }
+    </string>
+                       </property>
+                       <property name="readOnly">
+                        <bool>true</bool>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Estado de operaciones...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="limpiarbtn">
+                       <property name="styleSheet">
+                        <string notr="true">
+      QPushButton {
+       background-color: #2a4d6b;
+       color: #ffffff;
+       border: 1px solid #4a6b8a;
+       border-radius: 4px;
+		padding: 6px;
+      }
+      QPushButton:hover { background-color: #3a5d7b; }
+      QPushButton:pressed { background-color: #1a3d5b; }
+     </string>
+                       </property>
+                       <property name="text">
+                        <string>Limpiar</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>

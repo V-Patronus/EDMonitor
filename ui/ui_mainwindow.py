@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowxcGmjL.ui'
+## Form generated from reading UI file 'mainwindowPeFhiz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGroupBox, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTextEdit, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -539,7 +539,7 @@ class Ui_MainWindow(object):
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
 "                                stop:0 #2563eb,\n"
 "                                stop:1 #06b6d4);\n"
-"    padding: 40px;\n"
+"    padding: 5px;\n"
 "}\n"
 "      ")
         self.vboxLayout = QVBoxLayout(self.heroFrame)
@@ -585,7 +585,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollContent = QWidget()
         self.scrollContent.setObjectName(u"scrollContent")
-        self.scrollContent.setGeometry(QRect(0, -332, 728, 597))
+        self.scrollContent.setGeometry(QRect(0, 0, 728, 597))
         self._2 = QVBoxLayout(self.scrollContent)
         self._2.setObjectName(u"_2")
         self.lay_2 = QHBoxLayout()
@@ -1002,7 +1002,7 @@ class Ui_MainWindow(object):
         self.scrollCalculator.setWidgetResizable(True)
         self.scrollAreaWidgetCalculator = QWidget()
         self.scrollAreaWidgetCalculator.setObjectName(u"scrollAreaWidgetCalculator")
-        self.scrollAreaWidgetCalculator.setGeometry(QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetCalculator.setGeometry(QRect(0, 0, 744, 480))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetCalculator)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.scrollCalculator.setWidget(self.scrollAreaWidgetCalculator)
@@ -1019,7 +1019,7 @@ class Ui_MainWindow(object):
         self.scrollDocuments.setWidgetResizable(True)
         self.scrollAreaWidgetDocuments = QWidget()
         self.scrollAreaWidgetDocuments.setObjectName(u"scrollAreaWidgetDocuments")
-        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 179, 111))
+        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 744, 480))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetDocuments)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.AddCardGroup = QFrame(self.scrollAreaWidgetDocuments)
@@ -1091,7 +1091,201 @@ class Ui_MainWindow(object):
         self.scrollSettings.setWidgetResizable(True)
         self.scrollAreaWidgetSettings = QWidget()
         self.scrollAreaWidgetSettings.setObjectName(u"scrollAreaWidgetSettings")
-        self.scrollAreaWidgetSettings.setGeometry(QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetSettings.setGeometry(QRect(0, 0, 744, 480))
+        self.horizontalLayout_9 = QHBoxLayout(self.scrollAreaWidgetSettings)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.frameBackup = QFrame(self.scrollAreaWidgetSettings)
+        self.frameBackup.setObjectName(u"frameBackup")
+        self.frameBackup.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frameBackup.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frameBackup)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.groupCards = QGroupBox(self.frameBackup)
+        self.groupCards.setObjectName(u"groupCards")
+        self.groupCards.setStyleSheet(u"\n"
+"     QGroupBox {\n"
+"      border: 1px solid #555;\n"
+"      margin-top: 10px;\n"
+"      font-weight: bold;\n"
+"	border-radius:10px;\n"
+"     }\n"
+"     QGroupBox::title {\n"
+"      subcontrol-origin: margin;\n"
+"      left: 10px;\n"
+"      padding: 0 5px 0 5px;\n"
+"	color: rgb(255, 255, 255);\n"
+"     }\n"
+"    ")
+        self.horizontalLayout_11 = QHBoxLayout(self.groupCards)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.leCards_1 = QLineEdit(self.groupCards)
+        self.leCards_1.setObjectName(u"leCards_1")
+        self.leCards_1.setStyleSheet(u"\n"
+"      QLineEdit {\n"
+"       background-color: #2a2a2a;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #555;\n"
+"       border-radius: 4px;\n"
+"       padding: 4px;\n"
+"      }\n"
+"     ")
+
+        self.horizontalLayout_11.addWidget(self.leCards_1)
+
+        self.btnBrowseCards_1 = QPushButton(self.groupCards)
+        self.btnBrowseCards_1.setObjectName(u"btnBrowseCards_1")
+        self.btnBrowseCards_1.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #3c3c3c;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #555;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #505050; }\n"
+"      QPushButton:pressed { background-color: #2a2a2a; }\n"
+"     ")
+
+        self.horizontalLayout_11.addWidget(self.btnBrowseCards_1)
+
+        self.btnExcelCards_1 = QPushButton(self.groupCards)
+        self.btnExcelCards_1.setObjectName(u"btnExcelCards_1")
+        self.btnExcelCards_1.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #2a4d6b;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #4a6b8a;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #3a5d7b; }\n"
+"      QPushButton:pressed { background-color: #1a3d5b; }\n"
+"     ")
+
+        self.horizontalLayout_11.addWidget(self.btnExcelCards_1)
+
+
+        self.verticalLayout_5.addWidget(self.groupCards)
+
+        self.groupPartes = QGroupBox(self.frameBackup)
+        self.groupPartes.setObjectName(u"groupPartes")
+        self.groupPartes.setStyleSheet(u"\n"
+"     QGroupBox {\n"
+"      border: 1px solid #555;\n"
+"      margin-top: 10px;\n"
+"      font-weight: bold;\n"
+"	border-radius:10px;\n"
+"     }\n"
+"     QGroupBox::title {\n"
+"      subcontrol-origin: margin;\n"
+"      left: 10px;\n"
+"      padding: 0 5px 0 5px;\n"
+"	\n"
+"	color: rgb(255, 255, 255);\n"
+"     }\n"
+"    ")
+        self.horizontalLayout_10 = QHBoxLayout(self.groupPartes)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.lePartes_2 = QLineEdit(self.groupPartes)
+        self.lePartes_2.setObjectName(u"lePartes_2")
+        self.lePartes_2.setStyleSheet(u"\n"
+"      QLineEdit {\n"
+"       background-color: #2a2a2a;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #555;\n"
+"       border-radius: 4px;\n"
+"       padding: 4px;\n"
+"      }\n"
+"     ")
+
+        self.horizontalLayout_10.addWidget(self.lePartes_2)
+
+        self.btnBrowsePartes_2 = QPushButton(self.groupPartes)
+        self.btnBrowsePartes_2.setObjectName(u"btnBrowsePartes_2")
+        self.btnBrowsePartes_2.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #3c3c3c;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #555;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #505050; }\n"
+"      QPushButton:pressed { background-color: #2a2a2a; }\n"
+"     ")
+
+        self.horizontalLayout_10.addWidget(self.btnBrowsePartes_2)
+
+        self.btnExcelPartes_2 = QPushButton(self.groupPartes)
+        self.btnExcelPartes_2.setObjectName(u"btnExcelPartes_2")
+        self.btnExcelPartes_2.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #2a4d6b;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #4a6b8a;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #3a5d7b; }\n"
+"      QPushButton:pressed { background-color: #1a3d5b; }\n"
+"     ")
+
+        self.horizontalLayout_10.addWidget(self.btnExcelPartes_2)
+
+        self.btnPDFPartes_2 = QPushButton(self.groupPartes)
+        self.btnPDFPartes_2.setObjectName(u"btnPDFPartes_2")
+        self.btnPDFPartes_2.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #5a2a6b;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #7a4a8a;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #6a3a7b; }\n"
+"      QPushButton:pressed { background-color: #4a1a5b; }\n"
+"     ")
+
+        self.horizontalLayout_10.addWidget(self.btnPDFPartes_2)
+
+
+        self.verticalLayout_5.addWidget(self.groupPartes)
+
+        self.logOutput = QTextEdit(self.frameBackup)
+        self.logOutput.setObjectName(u"logOutput")
+        self.logOutput.setStyleSheet(u"\n"
+"     QTextEdit {\n"
+"      background-color: #0d0d0d;\n"
+"      color: #00ff00;\n"
+"      border: 1px solid #555;\n"
+"      font-family: monospace;\n"
+"      font-size: 9pt;\n"
+"	border-radius:10px;\n"
+"     }\n"
+"    ")
+        self.logOutput.setReadOnly(True)
+
+        self.verticalLayout_5.addWidget(self.logOutput)
+
+        self.limpiarbtn = QPushButton(self.frameBackup)
+        self.limpiarbtn.setObjectName(u"limpiarbtn")
+        self.limpiarbtn.setStyleSheet(u"\n"
+"      QPushButton {\n"
+"       background-color: #2a4d6b;\n"
+"       color: #ffffff;\n"
+"       border: 1px solid #4a6b8a;\n"
+"       border-radius: 4px;\n"
+"		padding: 6px;\n"
+"      }\n"
+"      QPushButton:hover { background-color: #3a5d7b; }\n"
+"      QPushButton:pressed { background-color: #1a3d5b; }\n"
+"     ")
+
+        self.verticalLayout_5.addWidget(self.limpiarbtn)
+
+
+        self.horizontalLayout_9.addWidget(self.frameBackup)
+
         self.scrollSettings.setWidget(self.scrollAreaWidgetSettings)
 
         self.horizontalLayout_4.addWidget(self.scrollSettings)
@@ -1170,5 +1364,16 @@ class Ui_MainWindow(object):
         self.fact3Inner.setProperty(u"role", QCoreApplication.translate("MainWindow", u"cardInner", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Geometr\u00edas complejas", None))
         self.btnAddCard.setText(QCoreApplication.translate("MainWindow", u"Agregar Tarjeta", None))
+        self.groupCards.setTitle(QCoreApplication.translate("MainWindow", u"Base de Datos - Tarjetas (Cards)", None))
+        self.leCards_1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Ruta para guardar Excel de Cards...", None))
+        self.btnBrowseCards_1.setText(QCoreApplication.translate("MainWindow", u"Examinar", None))
+        self.btnExcelCards_1.setText(QCoreApplication.translate("MainWindow", u"Exportar Excel Cards", None))
+        self.groupPartes.setTitle(QCoreApplication.translate("MainWindow", u"Base de Datos - Partes", None))
+        self.lePartes_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Ruta para guardar Excel de Partes...", None))
+        self.btnBrowsePartes_2.setText(QCoreApplication.translate("MainWindow", u"Examinar", None))
+        self.btnExcelPartes_2.setText(QCoreApplication.translate("MainWindow", u"Exportar Excel Partes", None))
+        self.btnPDFPartes_2.setText(QCoreApplication.translate("MainWindow", u"Generar PDF Partes", None))
+        self.logOutput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Estado de operaciones...", None))
+        self.limpiarbtn.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
     # retranslateUi
 
