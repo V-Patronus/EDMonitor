@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>581</height>
+    <width>769</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,29 +25,89 @@
 	background: #0D1017;
 }
 
-/* ===== LATERAL IZQUIERDO - GLASSMORPHISM ===== */
+#labelNombreEmpresa {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+   
+    
+    /* Fondo radial que ya te gustaba */
+    background: qradialgradient(cx:0.5, cy:0.5, radius:1.5,
+        fx:0.5, fy:0.5, stop:0 #1e293b, stop:1 #0f172a);
+        
+    /* Configuración de esquinas: 
+       Superior-Derecha: 20px, Inferior-Derecha: 20px
+       Superior-Izquierda: 0px, Inferior-Izquierda: 0px */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 
+    /* Bordes: Solo habilitamos el superior, derecho e inferior con el gradiente.
+       El izquierdo se deja en 'none' o transparente */
+    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #3b82f6, stop:1 #8b5cf6);
+    border-left: none; /* Esto hace que el lado izquierdo sea abierto/transparente */
+}
+
+#labelIconoEmpresa {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+   
+    
+    /* Fondo radial que ya te gustaba */
+    background: qradialgradient(cx:0.5, cy:0.5, radius:1.5,
+        fx:0.5, fy:0.5, stop:0 #1e293b, stop:1 #0f172a);
+        
+    /* Configuración de esquinas: 
+       Superior-Derecha: 20px, Inferior-Derecha: 20px
+       Superior-Izquierda: 0px, Inferior-Izquierda: 0px */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    /* Bordes: Solo habilitamos el superior, derecho e inferior con el gradiente.
+       El izquierdo se deja en 'none' o transparente */
+    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #3b82f6, stop:1 #8b5cf6);
+    border-right: none; /* Esto hace que el lado izquierdo sea abierto/transparente */
+}
 
 /* ===== BOTÓN CEGA NIC - ESTILO PREMIUM ===== */
-#CegaNicButton{
+/* Estado Normal */
+#CegaNicButton {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #3b82f6, stop:1 #8b5cf6);
-    color: #ffffff;
-    border: none;
+        stop:0 #1e3a8a, stop:1 #581c87); /* Azules y púrpuras profundos */
+    color: #e2e8f0; /* Blanco azulado suave */
+    border: 1px solid #334155;
     border-radius: 12px;
     padding: 12px 20px;
     font-weight: 700;
     font-size: 14px;
     margin: 8px;
-    
 }
-#CegaNicButton:hover{
+
+/* Estado Hover (Pasar el ratón) */
+#CegaNicButton:hover {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #2563eb, stop:1 #7c3aed);
+        stop:0 #2563eb, stop:1 #7c3aed); /* Brillo más intenso */
+    border: 1px solid #475569;
 }
+
+/* Estado Pressed (Al hacer clic) */
+#CegaNicButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #172554, stop:1 #4c1d95); /* Color más oscuro que el normal */
+    padding-top: 14px; /* Efecto visual de hundimiento */
+    padding-bottom: 10px;
+}
+
 
 #SideBarGroup, #SideBarFrame {
 border:transparent;
+padding-top:15px;
 }
 
 
@@ -135,18 +195,27 @@ border:transparent;
 }
 /* ===== BOTONES SUPERIORES - MINIMALISTAS ===== */
 #TopBarGroup QPushButton{
-  background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #006b8f, stop:1 #0099cc);
+   /* Fondo oscuro traslúcido para que resalte el icono colorido */
+    background-color: rgba(30, 30, 35, 200);
+    border: 2px solid #1a6dff; /* Azul base del icono */
+    border-radius: 10px;
     color: #ffffff;
-    border: 1px solid rgba(85, 85, 85, 0.3);
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 7px;
 }
 #TopBarGroup QPushButton:hover{
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #00708c, stop:1 #00a8f4);
+    /* Cambia a un gradiente similar al del icono */
+    border: 2px solid #c822ff;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 rgba(26, 109, 255, 40), 
+                                      stop:1 rgba(200, 34, 255, 40));
+}
+
+#TopBarGroup QPushButton:pressed {
+    background-color: rgba(200, 34, 255, 80);
+    border-color: #e6abff;
 }
 
 /* ===== ÁREA CENTRAL / SCROLL - OSCURO ===== */
@@ -371,6 +440,21 @@ QLabel#labelNotificacion {
        <item>
         <widget class="QFrame" name="TopBarFrame">
          <layout class="QHBoxLayout" name="TopBarHorLay">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QPushButton" name="CegaNicButton">
             <property name="cursor">
@@ -383,7 +467,7 @@ QLabel#labelNotificacion {
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>EDMonitor</string>
+             <string>EDMonitor  </string>
             </property>
             <property name="icon">
              <iconset resource="../assets/resources_qrc/resources.qrc">
@@ -407,26 +491,26 @@ QLabel#labelNotificacion {
            </widget>
           </item>
           <item>
-           <spacer name="HSpacer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>131</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QFrame" name="TopBarGroup">
             <layout class="QHBoxLayout" name="TopGroupLay">
              <item>
-              <widget class="QLineEdit" name="SearchLine"/>
+              <widget class="QLineEdit" name="SearchLine">
+               <property name="maximumSize">
+                <size>
+                 <width>0</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QPushButton" name="BtnSearch">
+               <property name="maximumSize">
+                <size>
+                 <width>0</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
@@ -446,21 +530,87 @@ QLabel#labelNotificacion {
               </widget>
              </item>
              <item>
+              <widget class="QFrame" name="frame_2">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="labelIconoEmpresa">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="../assets/resources_qrc/resources.qrc">:/iconos/iconos/tuerca.svg</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="labelNombreEmpresa">
+                  <property name="text">
+                   <string>CEGA Nicaragua S.A </string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="HSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>131</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <widget class="QPushButton" name="BtnClear">
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
-                <string>  UniqueUser</string>
+                <string>Documentation</string>
                </property>
                <property name="icon">
                 <iconset resource="../assets/resources_qrc/resources.qrc">
-                 <normaloff>:/iconos/iconos/gitlab.svg</normaloff>:/iconos/iconos/gitlab.svg</iconset>
+                 <normaloff>:/iconos/iconos/icons8-document.svg</normaloff>:/iconos/iconos/icons8-document.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>20</width>
-                 <height>20</height>
+                 <width>30</width>
+                 <height>30</height>
                 </size>
                </property>
               </widget>
@@ -573,7 +723,7 @@ QLabel#labelNotificacion {
                   </property>
                   <property name="icon">
                    <iconset resource="../assets/resources_qrc/resources.qrc">
-                    <normaloff>:/iconos/iconos/folder.svg</normaloff>:/iconos/iconos/folder.svg</iconset>
+                    <normaloff>:/iconos/iconos/layers.svg</normaloff>:/iconos/iconos/layers.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -595,7 +745,7 @@ QLabel#labelNotificacion {
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="text">
-                   <string>Calculator</string>
+                   <string>Japon</string>
                   </property>
                   <property name="icon">
                    <iconset resource="../assets/resources_qrc/resources.qrc">
@@ -651,7 +801,7 @@ QLabel#labelNotificacion {
                   </property>
                   <property name="icon">
                    <iconset resource="../assets/resources_qrc/resources.qrc">
-                    <normaloff>:/iconos/iconos/slack.svg</normaloff>:/iconos/iconos/slack.svg</iconset>
+                    <normaloff>:/iconos/iconos/download-cloud.svg</normaloff>:/iconos/iconos/download-cloud.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -709,7 +859,7 @@ QLabel#labelNotificacion {
           <item>
            <widget class="QStackedWidget" name="CentralStack">
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="PageHome">
              <property name="styleSheet">
@@ -740,58 +890,92 @@ QLabel#labelNotificacion {
                  <item>
                   <widget class="QFrame" name="heroFrame">
                    <property name="styleSheet">
-                    <string notr="true">
-/* HERO (solo este frame) */
-#heroFrame {
-    border-radius:20px;
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-                                stop:0 #2563eb,
-                                stop:1 #06b6d4);
-    padding: 5px;
-}
-      </string>
+                    <string notr="true"/>
                    </property>
                    <layout class="QVBoxLayout">
                     <item>
-                     <widget class="QLabel" name="heroTitle">
+                     <widget class="QFrame" name="titulos">
                       <property name="styleSheet">
                        <string notr="true">
+/* HERO (solo este frame) */
+QFrame{
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #2563eb,
+                                stop:1 #06b6d4);
+  border-radius: 24px;
+
+}
+      </string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::Shape::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Shadow::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_6">
+                       <item>
+                        <widget class="QLabel" name="heroTitle">
+                         <property name="styleSheet">
+                          <string notr="true">
 #heroTitle {
     background-color: transparent;
-    font-size: 44px;
+    font-size: 25px;
     font-weight: 900;
     letter-spacing: 5px;
-    padding: 6px;
+    padding: 2px;
 	color:rgb(255, 255, 255);
 }
          </string>
-                      </property>
-                      <property name="text">
-                       <string>WIRE EDM</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="heroSubtitle">
-                      <property name="styleSheet">
-                       <string notr="true">
+                         </property>
+                         <property name="text">
+                          <string>WIRE EDM</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignmentFlag::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="heroSubtitle">
+                         <property name="styleSheet">
+                          <string notr="true">
 #heroSubtitle {
     background-color: transparent;
     border-radius:5px;
     font-size: 16px;
     color: #e0f2fe;
-    padding: 6px;
 }
          </string>
+                         </property>
+                         <property name="text">
+                          <string>Electrical Discharge Machining de Alta Precisión</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignmentFlag::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="mediaPlaceholder">
+                      <property name="styleSheet">
+                       <string notr="true">
+#mediaPlaceholder {
+    border: 3px dashed #38bdf8;
+    border-radius: 24px;
+    font-size: 18px;
+    color: #38bdf8;
+}
+          </string>
                       </property>
-                      <property name="text">
-                       <string>Electrical Discharge Machining de Alta Precisión</string>
+                      <property name="frameShape">
+                       <enum>QFrame::Shape::StyledPanel</enum>
                       </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
+                      <property name="frameShadow">
+                       <enum>QFrame::Shadow::Raised</enum>
                       </property>
                      </widget>
                     </item>
@@ -813,9 +997,9 @@ QLabel#labelNotificacion {
                     <property name="geometry">
                      <rect>
                       <x>0</x>
-                      <y>0</y>
-                      <width>728</width>
-                      <height>597</height>
+                      <y>-160</y>
+                      <width>785</width>
+                      <height>618</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="_2">
@@ -1077,6 +1261,8 @@ QLabel#labelNotificacion {
                        <property name="styleSheet">
                         <string notr="true">
 #sectionWhat {
+	
+	background-color: #200136;
     border-radius: 24px;
     padding: 24px;
     border: 1px solid rgba(148, 163, 184, 0.25);
@@ -1089,9 +1275,11 @@ QLabel#labelNotificacion {
                           <property name="styleSheet">
                            <string notr="true">
 #sectionWhatTitle {
+	
+	background-color: transparent;
     font-size: 22px;
     font-weight: 700;
-    color: #38bdf8;
+    color: rgb(255, 255, 255);
 }
              </string>
                           </property>
@@ -1111,9 +1299,16 @@ QLabel#labelNotificacion {
                         </item>
                         <item>
                          <widget class="QLabel" name="label_2">
+                          <property name="font">
+                           <font>
+                            <family>Century Gothic</family>
+                            <pointsize>10</pointsize>
+                           </font>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true">#label_2 {
 	color: rgb(255, 255, 255);
+	background-color: transparent;
 }</string>
                           </property>
                           <property name="text">
@@ -1160,6 +1355,11 @@ Cómo funciona:
                          <layout class="QVBoxLayout" name="_10">
                           <item>
                            <widget class="QFrame" name="fact1Inner">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
                             <property name="styleSheet">
                              <string notr="true">
 #fact1Inner {
@@ -1177,6 +1377,12 @@ Cómo funciona:
                             <layout class="QVBoxLayout" name="_11">
                              <item>
                               <widget class="QLabel" name="label">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                 <fontweight>DemiBold</fontweight>
+                                </font>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">
 #label {
@@ -1239,6 +1445,12 @@ Cómo funciona:
                             <layout class="QVBoxLayout" name="_13">
                              <item>
                               <widget class="QLabel" name="label_3">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                 <fontweight>DemiBold</fontweight>
+                                </font>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">
 #label_3 {
@@ -1284,6 +1496,11 @@ Cómo funciona:
                          <layout class="QVBoxLayout" name="_14">
                           <item>
                            <widget class="QFrame" name="fact3Inner">
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                             </font>
+                            </property>
                             <property name="styleSheet">
                              <string notr="true">
 #fact3Inner {
@@ -1301,6 +1518,12 @@ Cómo funciona:
                             <layout class="QVBoxLayout" name="_15">
                              <item>
                               <widget class="QLabel" name="label_4">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                 <fontweight>DemiBold</fontweight>
+                                </font>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">
 #label_4 {
@@ -1326,26 +1549,6 @@ Cómo funciona:
                        </item>
                       </layout>
                      </item>
-                     <item>
-                      <widget class="QFrame" name="mediaPlaceholder">
-                       <property name="styleSheet">
-                        <string notr="true">
-#mediaPlaceholder {
-    border: 3px dashed #38bdf8;
-    border-radius: 24px;
-    font-size: 18px;
-    color: #38bdf8;
-}
-          </string>
-                       </property>
-                       <property name="frameShape">
-                        <enum>QFrame::Shape::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Shadow::Raised</enum>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </widget>
                   </widget>
@@ -1367,8 +1570,8 @@ Cómo funciona:
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>744</width>
-                   <height>480</height>
+                   <width>68</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_4"/>
@@ -1389,8 +1592,8 @@ Cómo funciona:
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>744</width>
-                   <height>480</height>
+                   <width>208</width>
+                   <height>119</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout">

@@ -4,8 +4,10 @@ import traceback
 import faulthandler
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel, QFileDialog
 import re
-from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication, QObject, Slot
+from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication, QObject, Slot, QUrl
 from PySide6.QtGui import QPixmap
+from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput
+from PySide6.QtMultimediaWidgets import QVideoWidget
 import os
 import sqlite3
 from datetime import datetime
@@ -18,6 +20,7 @@ from widgets.FlowLayout import FlowLayout
 from widgets.gageBoard import TableroGageWidget
 from workers.DatabaseWorker import DatabaseWorker
 from widgets.circular_splash import CircularSplash
+from widgets.CustomMessageBox import CustomMessageBox
 
 # default logging level: enable debug logs for troubleshooting startup
 logging.basicConfig(level=logging.DEBUG)
@@ -72,16 +75,9 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         self.backup_manager.finished.connect(lambda ok, msg: self.append_log(msg, level="success" if ok else "error"))
         self.backup_manager.progress.connect(lambda p, msg: self.append_log(msg, level="info"))
         self.backup_manager.paths_loaded.connect(self._on_backup_paths_loaded)
-        # Ensure paths are loaded after we've connected the slot (run in worker thread)
-        try:
-            from PySide6.QtCore import QMetaObject, Qt as _Qt
-            QMetaObject.invokeMethod(self.backup_manager, "_load_paths", _Qt.QueuedConnection)
-        except Exception:
-            try:
-                # fallback: call directly
-                self.backup_manager._load_paths()
-            except Exception:
-                pass
+        
+        # Trigger path loading as soon as the thread starts
+        self.backup_thread.started.connect(self.backup_manager.load_paths)
         self.backup_thread.start()
 
         
@@ -254,6 +250,18 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         # Setup backup handlers (buttons in PageSettings -> frameBackup)
         try:
             self.setup_backup_handlers()
+        except Exception:
+            pass
+
+        # 5. Setup Home Video Playback
+        try:
+            self.setup_home_video()
+        except Exception:
+            pass
+
+        # 6. Exit Confirmation
+        try:
+            self.BtnSalir.clicked.connect(self.confirm_exit)
         except Exception:
             pass
 
@@ -588,6 +596,74 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             self.CentralStack.setCurrentWidget(page)
         except Exception:
             pass
+
+    def setup_home_video(self):
+        """Initializes and starts video playback in mediaPlaceholder frame."""
+        try:
+            # 0. Setup container styling (rounded dashed borders)
+            self.mediaPlaceholder.setStyleSheet("""
+                QFrame#mediaPlaceholder {
+                    background-color: transparent;
+                }
+            """)
+            
+            # 1. Setup Media Components
+            self.media_player = QMediaPlayer(self)
+            self.video_widget = QVideoWidget()
+            self.audio_output = QAudioOutput(self)
+            
+            # 2. Configure Player
+            self.video_widget.setAspectRatioMode(Qt.IgnoreAspectRatio)
+            # Remove styling from video widget, keep it clean
+            self.video_widget.setStyleSheet("background-color: transparent;")
+            
+            self.media_player.setVideoOutput(self.video_widget)
+            self.media_player.setAudioOutput(self.audio_output)
+            self.audio_output.setMuted(True) 
+            
+            # 3. Handle Looping and Resizing
+            def handle_status_change(status):
+                if status == QMediaPlayer.MediaStatus.EndOfMedia:
+                    self.media_player.setPosition(0)
+                    self.media_player.play()
+                elif status == QMediaPlayer.MediaStatus.LoadedMedia:
+                    # Adjust size to exact resolution from metadata
+                    from PySide6.QtMultimedia import QMediaMetaData
+                    res = self.media_player.metaData().value(QMediaMetaData.Key.Resolution)
+                    if res and not res.isEmpty():
+                        target_width = min(540, res.width())
+                        target_height = int(res.height() * (target_width / res.width()))
+                        self.video_widget.setFixedSize(target_width, target_height)
+                        # Placeholder should be slightly larger to show the border if needed
+                        # but here we set it to wrap content or match size
+                        self.mediaPlaceholder.setMinimumSize(target_width, target_height)
+            
+            self.media_player.mediaStatusChanged.connect(handle_status_change)
+            
+            # 4. Integrate into UI (mediaPlaceholder)
+            if not self.mediaPlaceholder.layout():
+                layout = QVBoxLayout(self.mediaPlaceholder)
+                layout.setContentsMargins(0, 0, 0, 0)
+                layout.setAlignment(Qt.AlignCenter)
+            
+            self.mediaPlaceholder.layout().addWidget(self.video_widget)
+            self.mediaPlaceholder.layout().setAlignment(self.video_widget, Qt.AlignCenter)
+            
+            # 5. Load and Play
+            video_path = os.path.abspath(os.path.join("assets", "video", "edm.mp4"))
+            if os.path.exists(video_path):
+                self.media_player.setSource(QUrl.fromLocalFile(video_path))
+                self.media_player.play()
+            else:
+                logging.getLogger(__name__).warning("Video file not found: %s", video_path)
+                self.mediaPlaceholder.hide()
+                
+        except Exception as e:
+            logging.getLogger(__name__).error("Error setting up video: %s", e)
+            try:
+                self.mediaPlaceholder.hide()
+            except Exception:
+                pass
     
     # ---------------- Backup / Export Helpers ----------------
     def setup_backup_handlers(self):
@@ -725,19 +801,27 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             pass
 
     def on_app_quit(self):
+        """Cleanup logic before application exits. Called via aboutToQuit signal."""
         try:
-            self.append_log('Solicitando cancelación de tareas en segundo plano...', level='info')
             if hasattr(self, 'backup_manager') and self.backup_manager is not None:
                 try:
-                    self.backup_manager.cancel_requested.emit()
+                    self.backup_manager.cancel()
                 except Exception:
-                    try:
-                        # fallback direct call to set flag
-                        self.backup_manager._on_request_cancel()
-                    except Exception:
-                        pass
+                    pass
         except Exception:
             pass
+
+    def confirm_exit(self):
+        """Shows a confirmation dialog before closing the application."""
+        # Just call close(), it will trigger closeEvent
+        self.close()
+
+    def closeEvent(self, event):
+        """Override close event to show confirmation dialog."""
+        if CustomMessageBox.question(self, "Confirmar Salida", "¿Está seguro de que desea salir?"):
+            event.accept()
+        else:
+            event.ignore()
 
 
 

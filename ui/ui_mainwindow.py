@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowPeFhiz.ui'
+## Form generated from reading UI file 'mainwindowHUutjV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(894, 581)
+        MainWindow.resize(769, 566)
         MainWindow.setStyleSheet(u"/* ===== VENTANA PRINCIPAL ===== */\n"
 "#centralwidget{\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
@@ -37,37 +37,99 @@ class Ui_MainWindow(object):
 "	background: #0D1017;\n"
 "}\n"
 "\n"
-"/* ===== LATERAL IZQUIERDO - GLASSMORPHISM ===== */\n"
+"#labelNombreEmpresa {\n"
+"    color: #ffffff;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"   \n"
+"    \n"
+"    /* Fondo radial que ya te gustaba */\n"
+"    background: qradialgradient(cx:0.5, cy:0.5, radius:1.5,\n"
+"        fx:0.5, fy:0.5, stop:0 #1e293b, stop:1 #0f172a);\n"
+"        \n"
+"    /* Configuraci\u00f3n de esquinas: \n"
+"       Superior-Derecha: 20px, Inferior-Derecha: 20px\n"
+"       Superior-Izquierda: 0px, Inferior-Izquierda: 0px */\n"
+"    border-top-right-radius: 20px;\n"
+"    border-bottom-right-radius: 20px;\n"
+"    border-top-left-radius: 0px;\n"
+"    border-bottom-left-radius: 0px;\n"
 "\n"
+"    /* Bordes: Solo habilitamos el superior, derecho e inferior con el gradiente.\n"
+"       El izquierdo se deja en 'none' o transparen"
+                        "te */\n"
+"    border: 2px solid qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #3b82f6, stop:1 #8b5cf6);\n"
+"    border-left: none; /* Esto hace que el lado izquierdo sea abierto/transparente */\n"
+"}\n"
+"\n"
+"#labelIconoEmpresa {\n"
+"    color: #ffffff;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"   \n"
+"    \n"
+"    /* Fondo radial que ya te gustaba */\n"
+"    background: qradialgradient(cx:0.5, cy:0.5, radius:1.5,\n"
+"        fx:0.5, fy:0.5, stop:0 #1e293b, stop:1 #0f172a);\n"
+"        \n"
+"    /* Configuraci\u00f3n de esquinas: \n"
+"       Superior-Derecha: 20px, Inferior-Derecha: 20px\n"
+"       Superior-Izquierda: 0px, Inferior-Izquierda: 0px */\n"
+"    border-top-left-radius: 20px;\n"
+"    border-bottom-left-radius: 20px;\n"
+"    border-top-right-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"\n"
+"    /* Bordes: Solo habilitamos el superior, derecho e inferior con el gradiente.\n"
+"       El izquierdo se deja en 'none' o transparente */\n"
+"    border: 2px solid qlinea"
+                        "rgradient(x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #3b82f6, stop:1 #8b5cf6);\n"
+"    border-right: none; /* Esto hace que el lado izquierdo sea abierto/transparente */\n"
+"}\n"
 "\n"
 "/* ===== BOT\u00d3N CEGA NIC - ESTILO PREMIUM ===== */\n"
-"#CegaNicButton{\n"
+"/* Estado Normal */\n"
+"#CegaNicButton {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #3b82f6, stop:1 #8b5cf6);\n"
-"    color: #ffffff;\n"
-"    border: none;\n"
+"        stop:0 #1e3a8a, stop:1 #581c87); /* Azules y p\u00farpuras profundos */\n"
+"    color: #e2e8f0; /* Blanco azulado suave */\n"
+"    border: 1px solid #334155;\n"
 "    border-radius: 12px;\n"
 "    padding: 12px 20px;\n"
 "    font-weight: 700;\n"
 "    font-size: 14px;\n"
 "    margin: 8px;\n"
-"    \n"
 "}\n"
-"#CegaNicButton:hover{\n"
+"\n"
+"/* Estado Hover (Pasar el rat\u00f3n) */\n"
+"#CegaNicButton:hover {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #2563eb, stop:1 #7c3aed);\n"
+"        stop:0 #2563eb, stop:1 #7c3aed); /* Brillo m\u00e1s intenso */\n"
+"    border: 1px solid #475569;\n"
 "}\n"
+"\n"
+"/* Estado Pressed (Al hacer clic) */\n"
+"#CegaNicButton:pressed {\n"
+"    background: qlineargradient(x1:0, y1:0,"
+                        " x2:1, y2:0,\n"
+"        stop:0 #172554, stop:1 #4c1d95); /* Color m\u00e1s oscuro que el normal */\n"
+"    padding-top: 14px; /* Efecto visual de hundimiento */\n"
+"    padding-bottom: 10px;\n"
+"}\n"
+"\n"
 "\n"
 "#SideBarGroup, #SideBarFrame {\n"
 "border:transparent;\n"
+"padding-top:15px;\n"
 "}\n"
 "\n"
 "\n"
 "\n"
 "/* ===== BOTONES DEL GRUPO LATERAL - ESTADOS MODERNOS ===== */\n"
 "#SideBarGroup QPushButton{\n"
-"    ba"
-                        "ckground: rgba(60, 63, 65, 0.5);\n"
+"    background: rgba(60, 63, 65, 0.5);\n"
 "    color: #bbbbbb;\n"
 "    border: 1px solid rgba(85, 85, 85, 0.3);\n"
 "    border-radius: 10px;\n"
@@ -87,7 +149,8 @@ class Ui_MainWindow(object):
 "\n"
 "/* ESTADO PRESSED - Hundido */\n"
 "#SideBarGroup QPushButton:pressed{\n"
-"    background: rgba(45, 48, 50, 0.8);\n"
+"    background: rgba(45, 48, 50"
+                        ", 0.8);\n"
 "}\n"
 "\n"
 "/* ESTADO ACTIVE/CHECKED - Efecto NEON */\n"
@@ -99,8 +162,7 @@ class Ui_MainWindow(object):
 "    font-weight: 600;\n"
 "    /* Indicador lateral brillante */\n"
 "    border-left: 4px solid #00f2ff;\n"
-"    padding-left: 12px;"
-                        "\n"
+"    padding-left: 12px;\n"
 "}\n"
 "\n"
 "/* ESTADO INACTIVO/DESENFocado - Atenuado */\n"
@@ -121,7 +183,8 @@ class Ui_MainWindow(object):
 "/* ===== BARRA SUPERIOR - GLASS EFFECT ===== */\n"
 "#TopBarFrame{\n"
 "	background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
-"        stop:0 #020c1b, stop:0.2 #0a1929, stop:0.5 #14213d, stop:0.8 #1e3a5f, stop:1 #2a4a70);;\n"
+"        stop:0 #02"
+                        "0c1b, stop:0.2 #0a1929, stop:0.5 #14213d, stop:0.8 #1e3a5f, stop:1 #2a4a70);;\n"
 "    border: none;\n"
 "}\n"
 "\n"
@@ -136,8 +199,7 @@ class Ui_MainWindow(object):
 "    font-size: 14px;\n"
 "    font-weight: 500;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "#SearchLine:focus {\n"
 "    background: rgba(0, 180, 216, 0.15);\n"
 "    border-color: #00b4d8;\n"
@@ -150,18 +212,28 @@ class Ui_MainWindow(object):
 "}\n"
 "/* ===== BOTONES SUPERIORES - MINIMALISTAS ===== */\n"
 "#TopBarGroup QPushButton{\n"
-"  background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #006b8f, stop:1 #0099cc);\n"
+"   /* Fondo oscuro trasl\u00facido para que resalte el icono colorido */\n"
+"    background-color: rgba(30, 30, 35, 200);\n"
+"    border: 2px solid #1a6dff; /* Azul base del icono */\n"
+"    border-radius: 10px;\n"
 "    color: #ffffff;\n"
-"    border: 1px solid rgba(85, 85, 85, 0.3);\n"
-"    border-radius: 6px;\n"
-"    padding: 6px 12px;\n"
-"    font-size: 12px;\n"
-"    font-weight: 500;\n"
+"    font-"
+                        "family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 14px;\n"
+"    font-weight: bold;\n"
+"    padding: 5px 7px;\n"
 "}\n"
 "#TopBarGroup QPushButton:hover{\n"
-"    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #00708c, stop:1 #00a8f4);\n"
+"    /* Cambia a un gradiente similar al del icono */\n"
+"    border: 2px solid #c822ff;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
+"                                      stop:0 rgba(26, 109, 255, 40), \n"
+"                                      stop:1 rgba(200, 34, 255, 40));\n"
+"}\n"
+"\n"
+"#TopBarGroup QPushButton:pressed {\n"
+"    background-color: rgba(200, 34, 255, 80);\n"
+"    border-color: #e6abff;\n"
 "}\n"
 "\n"
 "/* ===== \u00c1REA CENTRAL / SCROLL - OSCURO ===== */\n"
@@ -172,8 +244,7 @@ class Ui_MainWindow(object):
 "\n"
 "/* ===== SCROLLBAR MODERNO - GLASSMORPHISM ===== */\n"
 "\n"
-"/* SCROLLBAR VERTIC"
-                        "AL */\n"
+"/* SCROLLBAR VERTICAL */\n"
 "QScrollBar:vertical {\n"
 "    background: transparent;\n"
 "    width: 14px;\n"
@@ -182,7 +253,8 @@ class Ui_MainWindow(object):
 "    border-radius: 7px;\n"
 "}\n"
 "\n"
-"QScrollBar::handle:vertical {\n"
+"QScrol"
+                        "lBar::handle:vertical {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
 "        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba(0, 119, 182, 0.5));\n"
 "    border: 2px solid rgba(0, 180, 216, 0.6);\n"
@@ -203,15 +275,15 @@ class Ui_MainWindow(object):
 "\n"
 "/* Flechas del scrollbar - estilizadas */\n"
 "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
-"    background: rgba(0, 18"
-                        "0, 216, 0.2);\n"
+"    background: rgba(0, 180, 216, 0.2);\n"
 "    border: 1px solid rgba(0, 180, 216, 0.4);\n"
 "    border-radius: 7px;\n"
 "    height: 14px;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "\n"
-"QScrollBar::add-line:vertical {\n"
+"QScrollBar::add-line:ver"
+                        "tical {\n"
 "    subcontrol-position: bottom;\n"
 "    margin-bottom: 2px;\n"
 "}\n"
@@ -241,15 +313,15 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::handle:horizontal {\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba"
-                        "(0, 119, 182, 0.5));\n"
+"        stop:0 rgba(0, 180, 216, 0.3), stop:1 rgba(0, 119, 182, 0.5));\n"
 "    border: 2px solid rgba(0, 180, 216, 0.6);\n"
 "    border-radius: 7px;\n"
 "    min-width: 30px;    \n"
 "}\n"
 "\n"
 "QScrollBar::handle:horizontal:hover {\n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"   "
+                        " background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
 "        stop:0 rgba(0, 212, 255, 0.5), stop:1 rgba(0, 153, 204, 0.7));\n"
 "    border-color: rgba(0, 212, 255, 0.8);    \n"
 "}\n"
@@ -274,13 +346,13 @@ class Ui_MainWindow(object):
 "\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    subcontrol-position: left;\n"
-"    margi"
-                        "n-left: 2px;\n"
+"    margin-left: 2px;\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:horizontal:hover, QScrollBar::sub-line:horizontal:hover {\n"
 "    background: rgba(0, 212, 255, 0.3);\n"
-"    border-color: rgba(0, 212, 255, 0.6);\n"
+"    border-color: rgba(0, 212, 25"
+                        "5, 0.6);\n"
 "}\n"
 "\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
@@ -313,15 +385,15 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* ESTADO PRESSED - Hundido */\n"
-"QPushButton#btnA"
-                        "ddCard:pressed{\n"
+"QPushButton#btnAddCard:pressed{\n"
 "    background: rgb(86, 86, 86);\n"
 "}\n"
 "\n"
 "QLabel#labelNotificacion {\n"
 "    /* Fondo oscuro trasl\u00facido o s\u00f3lido */\n"
 "    background-color: #2b2b2b;\n"
-"    \n"
+""
+                        "    \n"
 "    /* Borde fino y elegante */\n"
 "    border: 1px solid #3d3d3d;\n"
 "    border-radius: 10px;\n"
@@ -359,7 +431,9 @@ class Ui_MainWindow(object):
         self.TopBarFrame = QFrame(self.RightFrame)
         self.TopBarFrame.setObjectName(u"TopBarFrame")
         self.TopBarHorLay = QHBoxLayout(self.TopBarFrame)
+        self.TopBarHorLay.setSpacing(0)
         self.TopBarHorLay.setObjectName(u"TopBarHorLay")
+        self.TopBarHorLay.setContentsMargins(0, 0, 0, 0)
         self.CegaNicButton = QPushButton(self.TopBarFrame)
         self.CegaNicButton.setObjectName(u"CegaNicButton")
         self.CegaNicButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -375,21 +449,19 @@ class Ui_MainWindow(object):
 
         self.TopBarHorLay.addWidget(self.CegaNicButton)
 
-        self.HSpacer = QSpacerItem(131, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.TopBarHorLay.addItem(self.HSpacer)
-
         self.TopBarGroup = QFrame(self.TopBarFrame)
         self.TopBarGroup.setObjectName(u"TopBarGroup")
         self.TopGroupLay = QHBoxLayout(self.TopBarGroup)
         self.TopGroupLay.setObjectName(u"TopGroupLay")
         self.SearchLine = QLineEdit(self.TopBarGroup)
         self.SearchLine.setObjectName(u"SearchLine")
+        self.SearchLine.setMaximumSize(QSize(0, 16777215))
 
         self.TopGroupLay.addWidget(self.SearchLine)
 
         self.BtnSearch = QPushButton(self.TopBarGroup)
         self.BtnSearch.setObjectName(u"BtnSearch")
+        self.BtnSearch.setMaximumSize(QSize(0, 16777215))
         self.BtnSearch.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon1 = QIcon()
         icon1.addFile(u":/iconos/iconos/search.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -398,13 +470,41 @@ class Ui_MainWindow(object):
 
         self.TopGroupLay.addWidget(self.BtnSearch)
 
+        self.frame_2 = QFrame(self.TopBarGroup)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_7.setSpacing(0)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.labelIconoEmpresa = QLabel(self.frame_2)
+        self.labelIconoEmpresa.setObjectName(u"labelIconoEmpresa")
+        self.labelIconoEmpresa.setMaximumSize(QSize(50, 50))
+        self.labelIconoEmpresa.setPixmap(QPixmap(u":/iconos/iconos/tuerca.svg"))
+        self.labelIconoEmpresa.setScaledContents(True)
+
+        self.horizontalLayout_7.addWidget(self.labelIconoEmpresa)
+
+        self.labelNombreEmpresa = QLabel(self.frame_2)
+        self.labelNombreEmpresa.setObjectName(u"labelNombreEmpresa")
+
+        self.horizontalLayout_7.addWidget(self.labelNombreEmpresa)
+
+
+        self.TopGroupLay.addWidget(self.frame_2)
+
+        self.HSpacer = QSpacerItem(131, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.TopGroupLay.addItem(self.HSpacer)
+
         self.BtnClear = QPushButton(self.TopBarGroup)
         self.BtnClear.setObjectName(u"BtnClear")
         self.BtnClear.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon2 = QIcon()
-        icon2.addFile(u":/iconos/iconos/gitlab.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u":/iconos/iconos/icons8-document.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.BtnClear.setIcon(icon2)
-        self.BtnClear.setIconSize(QSize(20, 20))
+        self.BtnClear.setIconSize(QSize(30, 30))
 
         self.TopGroupLay.addWidget(self.BtnClear)
 
@@ -452,7 +552,7 @@ class Ui_MainWindow(object):
         self.btnDocuments.setObjectName(u"btnDocuments")
         self.btnDocuments.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon4 = QIcon()
-        icon4.addFile(u":/iconos/iconos/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon4.addFile(u":/iconos/iconos/layers.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.btnDocuments.setIcon(icon4)
         self.btnDocuments.setIconSize(QSize(20, 20))
         self.btnDocuments.setCheckable(True)
@@ -488,7 +588,7 @@ class Ui_MainWindow(object):
         self.BtnAyuda.setObjectName(u"BtnAyuda")
         self.BtnAyuda.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon7 = QIcon()
-        icon7.addFile(u":/iconos/iconos/slack.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon7.addFile(u":/iconos/iconos/download-cloud.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.BtnAyuda.setIcon(icon7)
         self.BtnAyuda.setIconSize(QSize(20, 20))
         self.BtnAyuda.setCheckable(True)
@@ -532,35 +632,42 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.heroFrame = QFrame(self.frame)
         self.heroFrame.setObjectName(u"heroFrame")
-        self.heroFrame.setStyleSheet(u"\n"
+        self.heroFrame.setStyleSheet(u"")
+        self.vboxLayout = QVBoxLayout(self.heroFrame)
+        self.vboxLayout.setObjectName(u"vboxLayout")
+        self.titulos = QFrame(self.heroFrame)
+        self.titulos.setObjectName(u"titulos")
+        self.titulos.setStyleSheet(u"\n"
 "/* HERO (solo este frame) */\n"
-"#heroFrame {\n"
-"    border-radius:20px;\n"
+"QFrame{\n"
 "    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
 "                                stop:0 #2563eb,\n"
 "                                stop:1 #06b6d4);\n"
-"    padding: 5px;\n"
+"  border-radius: 24px;\n"
+"\n"
 "}\n"
 "      ")
-        self.vboxLayout = QVBoxLayout(self.heroFrame)
-        self.vboxLayout.setObjectName(u"vboxLayout")
-        self.heroTitle = QLabel(self.heroFrame)
+        self.titulos.setFrameShape(QFrame.Shape.StyledPanel)
+        self.titulos.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.titulos)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.heroTitle = QLabel(self.titulos)
         self.heroTitle.setObjectName(u"heroTitle")
         self.heroTitle.setStyleSheet(u"\n"
 "#heroTitle {\n"
 "    background-color: transparent;\n"
-"    font-size: 44px;\n"
+"    font-size: 25px;\n"
 "    font-weight: 900;\n"
 "    letter-spacing: 5px;\n"
-"    padding: 6px;\n"
+"    padding: 2px;\n"
 "	color:rgb(255, 255, 255);\n"
 "}\n"
 "         ")
         self.heroTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.vboxLayout.addWidget(self.heroTitle)
+        self.verticalLayout_6.addWidget(self.heroTitle)
 
-        self.heroSubtitle = QLabel(self.heroFrame)
+        self.heroSubtitle = QLabel(self.titulos)
         self.heroSubtitle.setObjectName(u"heroSubtitle")
         self.heroSubtitle.setStyleSheet(u"\n"
 "#heroSubtitle {\n"
@@ -568,12 +675,29 @@ class Ui_MainWindow(object):
 "    border-radius:5px;\n"
 "    font-size: 16px;\n"
 "    color: #e0f2fe;\n"
-"    padding: 6px;\n"
 "}\n"
 "         ")
         self.heroSubtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.vboxLayout.addWidget(self.heroSubtitle)
+        self.verticalLayout_6.addWidget(self.heroSubtitle)
+
+
+        self.vboxLayout.addWidget(self.titulos)
+
+        self.mediaPlaceholder = QFrame(self.heroFrame)
+        self.mediaPlaceholder.setObjectName(u"mediaPlaceholder")
+        self.mediaPlaceholder.setStyleSheet(u"\n"
+"#mediaPlaceholder {\n"
+"    border: 3px dashed #38bdf8;\n"
+"    border-radius: 24px;\n"
+"    font-size: 18px;\n"
+"    color: #38bdf8;\n"
+"}\n"
+"          ")
+        self.mediaPlaceholder.setFrameShape(QFrame.Shape.StyledPanel)
+        self.mediaPlaceholder.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.vboxLayout.addWidget(self.mediaPlaceholder)
 
 
         self.verticalLayout_3.addWidget(self.heroFrame)
@@ -585,7 +709,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollContent = QWidget()
         self.scrollContent.setObjectName(u"scrollContent")
-        self.scrollContent.setGeometry(QRect(0, 0, 728, 597))
+        self.scrollContent.setGeometry(QRect(0, -160, 785, 618))
         self._2 = QVBoxLayout(self.scrollContent)
         self._2.setObjectName(u"_2")
         self.lay_2 = QHBoxLayout()
@@ -786,6 +910,8 @@ class Ui_MainWindow(object):
         self.sectionWhat.setObjectName(u"sectionWhat")
         self.sectionWhat.setStyleSheet(u"\n"
 "#sectionWhat {\n"
+"	\n"
+"	background-color: #200136;\n"
 "    border-radius: 24px;\n"
 "    padding: 24px;\n"
 "    border: 1px solid rgba(148, 163, 184, 0.25);\n"
@@ -797,9 +923,11 @@ class Ui_MainWindow(object):
         self.sectionWhatTitle.setObjectName(u"sectionWhatTitle")
         self.sectionWhatTitle.setStyleSheet(u"\n"
 "#sectionWhatTitle {\n"
+"	\n"
+"	background-color: transparent;\n"
 "    font-size: 22px;\n"
 "    font-weight: 700;\n"
-"    color: #38bdf8;\n"
+"    color: rgb(255, 255, 255);\n"
 "}\n"
 "             ")
         self.sectionWhatTitle.setTextFormat(Qt.TextFormat.PlainText)
@@ -810,8 +938,13 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.sectionWhat)
         self.label_2.setObjectName(u"label_2")
+        font = QFont()
+        font.setFamilies([u"Century Gothic"])
+        font.setPointSize(10)
+        self.label_2.setFont(font)
         self.label_2.setStyleSheet(u"#label_2 {\n"
 "	color: rgb(255, 255, 255);\n"
+"	background-color: transparent;\n"
 "}")
         self.label_2.setTextFormat(Qt.TextFormat.PlainText)
         self.label_2.setWordWrap(True)
@@ -841,6 +974,9 @@ class Ui_MainWindow(object):
         self._10.setObjectName(u"_10")
         self.fact1Inner = QFrame(self.fact1)
         self.fact1Inner.setObjectName(u"fact1Inner")
+        font1 = QFont()
+        font1.setPointSize(10)
+        self.fact1Inner.setFont(font1)
         self.fact1Inner.setStyleSheet(u"\n"
 "#fact1Inner {\n"
 "    border-radius: 18px;\n"
@@ -854,6 +990,10 @@ class Ui_MainWindow(object):
         self._11.setObjectName(u"_11")
         self.label = QLabel(self.fact1Inner)
         self.label.setObjectName(u"label")
+        font2 = QFont()
+        font2.setPointSize(12)
+        font2.setWeight(QFont.DemiBold)
+        self.label.setFont(font2)
         self.label.setStyleSheet(u"\n"
 "#label {\n"
 "    background: transparent;\n"
@@ -902,6 +1042,7 @@ class Ui_MainWindow(object):
         self._13.setObjectName(u"_13")
         self.label_3 = QLabel(self.fact2Inner)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font2)
         self.label_3.setStyleSheet(u"\n"
 "#label_3 {\n"
 "    background: transparent;\n"
@@ -937,6 +1078,9 @@ class Ui_MainWindow(object):
         self._14.setObjectName(u"_14")
         self.fact3Inner = QFrame(self.fact3)
         self.fact3Inner.setObjectName(u"fact3Inner")
+        font3 = QFont()
+        font3.setPointSize(12)
+        self.fact3Inner.setFont(font3)
         self.fact3Inner.setStyleSheet(u"\n"
 "#fact3Inner {\n"
 "    border-radius: 18px;\n"
@@ -950,6 +1094,7 @@ class Ui_MainWindow(object):
         self._15.setObjectName(u"_15")
         self.label_4 = QLabel(self.fact3Inner)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font2)
         self.label_4.setStyleSheet(u"\n"
 "#label_4 {\n"
 "    background: transparent;\n"
@@ -970,21 +1115,6 @@ class Ui_MainWindow(object):
 
         self._2.addLayout(self.lay_1)
 
-        self.mediaPlaceholder = QFrame(self.scrollContent)
-        self.mediaPlaceholder.setObjectName(u"mediaPlaceholder")
-        self.mediaPlaceholder.setStyleSheet(u"\n"
-"#mediaPlaceholder {\n"
-"    border: 3px dashed #38bdf8;\n"
-"    border-radius: 24px;\n"
-"    font-size: 18px;\n"
-"    color: #38bdf8;\n"
-"}\n"
-"          ")
-        self.mediaPlaceholder.setFrameShape(QFrame.Shape.StyledPanel)
-        self.mediaPlaceholder.setFrameShadow(QFrame.Shadow.Raised)
-
-        self._2.addWidget(self.mediaPlaceholder)
-
         self.scrollArea.setWidget(self.scrollContent)
 
         self.verticalLayout_3.addWidget(self.scrollArea)
@@ -1002,7 +1132,7 @@ class Ui_MainWindow(object):
         self.scrollCalculator.setWidgetResizable(True)
         self.scrollAreaWidgetCalculator = QWidget()
         self.scrollAreaWidgetCalculator.setObjectName(u"scrollAreaWidgetCalculator")
-        self.scrollAreaWidgetCalculator.setGeometry(QRect(0, 0, 744, 480))
+        self.scrollAreaWidgetCalculator.setGeometry(QRect(0, 0, 68, 18))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetCalculator)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.scrollCalculator.setWidget(self.scrollAreaWidgetCalculator)
@@ -1019,7 +1149,7 @@ class Ui_MainWindow(object):
         self.scrollDocuments.setWidgetResizable(True)
         self.scrollAreaWidgetDocuments = QWidget()
         self.scrollAreaWidgetDocuments.setObjectName(u"scrollAreaWidgetDocuments")
-        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 744, 480))
+        self.scrollAreaWidgetDocuments.setGeometry(QRect(0, 0, 208, 119))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetDocuments)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.AddCardGroup = QFrame(self.scrollAreaWidgetDocuments)
@@ -1031,12 +1161,12 @@ class Ui_MainWindow(object):
         self.btnAddCard = QPushButton(self.AddCardGroup)
         self.btnAddCard.setObjectName(u"btnAddCard")
         self.btnAddCard.setMaximumSize(QSize(250, 16777215))
-        font = QFont()
-        font.setWeight(QFont.Medium)
-        font.setItalic(False)
-        font.setUnderline(False)
-        font.setStrikeOut(False)
-        self.btnAddCard.setFont(font)
+        font4 = QFont()
+        font4.setWeight(QFont.Medium)
+        font4.setItalic(False)
+        font4.setUnderline(False)
+        font4.setStrikeOut(False)
+        self.btnAddCard.setFont(font4)
         self.btnAddCard.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btnAddCard.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         icon9 = QIcon()
@@ -1322,12 +1452,14 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"QtSigner \u2013 CEGA NIC", None))
-        self.CegaNicButton.setText(QCoreApplication.translate("MainWindow", u"EDMonitor", None))
+        self.CegaNicButton.setText(QCoreApplication.translate("MainWindow", u"EDMonitor  ", None))
         self.BtnSearch.setText(QCoreApplication.translate("MainWindow", u"Search", None))
-        self.BtnClear.setText(QCoreApplication.translate("MainWindow", u"  UniqueUser", None))
+        self.labelIconoEmpresa.setText("")
+        self.labelNombreEmpresa.setText(QCoreApplication.translate("MainWindow", u"CEGA Nicaragua S.A ", None))
+        self.BtnClear.setText(QCoreApplication.translate("MainWindow", u"Documentation", None))
         self.btnHome.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btnDocuments.setText(QCoreApplication.translate("MainWindow", u"Cards", None))
-        self.btnCalculator.setText(QCoreApplication.translate("MainWindow", u"Calculator", None))
+        self.btnCalculator.setText(QCoreApplication.translate("MainWindow", u"Japon", None))
         self.btnJapon.setText(QCoreApplication.translate("MainWindow", u"Gages", None))
         self.BtnAyuda.setText(QCoreApplication.translate("MainWindow", u"Backup", None))
         self.BtnSalir.setText(QCoreApplication.translate("MainWindow", u"Exit", None))

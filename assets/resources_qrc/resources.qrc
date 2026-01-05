@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="iconos">
+    <file>../iconos/tuerca.svg</file>
+    <file>../iconos/icons8-document.svg</file>
     <file>../iconos/carpeta.svg</file>
     <file>../iconos/excel.svg</file>
     <file>../iconos/delete-btn.svg</file>

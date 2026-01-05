@@ -27,16 +27,13 @@ class BackupManager(QObject):
         # internal cancel flag for cooperative cancellation
         self._cancel_requested = False
 
-        # connect request signals to slots
+        # Connect backup signals
         self.export_cards_requested.connect(self._export_cards_excel)
         self.export_partes_requested.connect(self._export_partes_excel)
         self.export_partes_pdf_requested.connect(self._export_partes_pdf)
         self.set_cards_path.connect(self._on_set_cards_path)
         self.set_partes_path.connect(self._on_set_partes_path)
         self.cancel_requested.connect(self._on_request_cancel)
-
-        # Load persisted paths on init
-        self._load_paths()
 
     def _on_set_cards_path(self, path: str):
         self._save_json({'cards': path})
@@ -46,7 +43,8 @@ class BackupManager(QObject):
         self._save_json({'partes': path})
         self.progress.emit(0, f"Ruta Partes guardada: {path}")
 
-    def _load_paths(self):
+    @Slot()
+    def load_paths(self):
         data = self._read_json()
         cards = data.get('cards', '')
         partes = data.get('partes', '')
