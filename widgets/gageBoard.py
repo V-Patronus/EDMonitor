@@ -54,7 +54,7 @@ class ParteDialog(QDialog):
 class TableroGageWidget(QWidget):
     initial_load_complete = Signal()
 
-    def __init__(self):
+    def __init__(self, db_path="database/partes.db"):
         super().__init__()
         self.ui = Ui_TableroGageWidget()
         self.ui.setupUi(self)
@@ -78,7 +78,7 @@ class TableroGageWidget(QWidget):
         # --- Async Worker Setup (deferred start) ---
         self.worker_thread = QThread()
         self._first_load_parts = True # Track first load
-        self.worker = PartesWorker()
+        self.worker = PartesWorker(db_path)
         self.worker.moveToThread(self.worker_thread)
 
         # Connect Main -> Worker Signals (Slots) and thread start initialization

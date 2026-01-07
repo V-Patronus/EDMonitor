@@ -20,7 +20,7 @@ class CircularSplash(QWidget):
                  line_width=10,
                  bg_ring="#202020",
                  progress_color="#00B4FF",
-                 text_color="#FFFFFF",
+                 text_color="#00B4FF",
                  glow_color="#00B4FF",
                  glow_width=16,
                  process_name="Iniciando…"):

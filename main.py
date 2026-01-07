@@ -1,11 +1,49 @@
 import sys
+import resources_rc
 import logging
 import traceback
 import faulthandler
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel, QFileDialog
+import os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    if getattr(sys, 'frozen', False):
+        # If frozen, use _MEIPASS (one-file) or the executable directory (one-dir)
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.executable))
+    else:
+        # In development, use current directory
+        base_path = os.path.abspath(".")
+
+    # 1. Try direct path
+    path = os.path.join(base_path, relative_path)
+    if os.path.exists(path):
+        return path
+
+    # 2. Try PyInstaller 6+ '_internal' folder structure
+    internal_path = os.path.join(base_path, "_internal", relative_path)
+    if os.path.exists(internal_path):
+        return internal_path
+
+    return path
+
+# Windows Taskbar Icon Fix
+if sys.platform == "win32":
+    import ctypes
+    myappid = u'ceganic.edmonitor.1.0' # unique identifier
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+from PySide6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, 
+    QGraphicsOpacityEffect, QGridLayout, QSplashScreen, QLabel, 
+    QFileDialog, QMessageBox
+)
 import re
-from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, QSize, QTimer, QThread, Signal, QCoreApplication, QObject, Slot, QUrl
-from PySide6.QtGui import QPixmap
+from PySide6.QtCore import (
+    Qt, QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, 
+    QSize, QTimer, QThread, Signal, QCoreApplication, QObject, Slot, 
+    QUrl, QLockFile, QStandardPaths
+)
+from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PySide6.QtMultimediaWidgets import QVideoWidget
 import os
@@ -22,8 +60,8 @@ from workers.DatabaseWorker import DatabaseWorker
 from widgets.circular_splash import CircularSplash
 from widgets.CustomMessageBox import CustomMessageBox
 
-# default logging level: enable debug logs for troubleshooting startup
-logging.basicConfig(level=logging.DEBUG)
+# default logging level: set to WARNING to reduce console noise for production
+logging.basicConfig(level=logging.WARNING)
 
 # Ensure uncaught exceptions are printed to console for debugging
 def _excepthook(type, value, tb):
@@ -50,6 +88,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         # styles on some pages.
         try:
             self.setupUi(self)
+            self.setWindowIcon(QIcon(resource_path("assets/logo/logo.ico")))
         except Exception:
             # If setup fails, re-raise after logging the traceback for debugging.
             traceback.print_exc()
@@ -64,7 +103,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         }
 
         self.db_thread = QThread()
-        self.db_worker = DatabaseWorker()
+        self.db_worker = DatabaseWorker(resource_path("database/edm_cards.db"))
         self.db_worker.moveToThread(self.db_thread)
 
         # Setup Backup Manager in its own thread to keep logic out of main.py
@@ -197,7 +236,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         self.btnAddCard.clicked.connect(self.toggle_add_card_mode)
 
         # 3. Gage Board Widget (PageJapon)
-        self.tablero_gage_widget = TableroGageWidget()
+        self.tablero_gage_widget = TableroGageWidget(resource_path("database/partes.db"))
         if not self.PageJapon.layout():
             self.PageJapon.setLayout(QVBoxLayout())
         self.PageJapon.layout().addWidget(self.tablero_gage_widget)
@@ -262,6 +301,11 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         # 6. Exit Confirmation
         try:
             self.BtnSalir.clicked.connect(self.confirm_exit)
+        except Exception:
+            pass
+        # Connect documentation (About) button
+        try:
+            self.BtnDoc.clicked.connect(self.show_about_dialog)
         except Exception:
             pass
 
@@ -631,7 +675,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
                     from PySide6.QtMultimedia import QMediaMetaData
                     res = self.media_player.metaData().value(QMediaMetaData.Key.Resolution)
                     if res and not res.isEmpty():
-                        target_width = min(540, res.width())
+                        target_width = min(440, res.width())
                         target_height = int(res.height() * (target_width / res.width()))
                         self.video_widget.setFixedSize(target_width, target_height)
                         # Placeholder should be slightly larger to show the border if needed
@@ -650,12 +694,18 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
             self.mediaPlaceholder.layout().setAlignment(self.video_widget, Qt.AlignCenter)
             
             # 5. Load and Play
-            video_path = os.path.abspath(os.path.join("assets", "video", "edm.mp4"))
-            if os.path.exists(video_path):
-                self.media_player.setSource(QUrl.fromLocalFile(video_path))
+            rel_video_path = os.path.join("assets", "video", "edm.mp4")
+            video_path = resource_path(rel_video_path)
+            
+            # Ensure absolute path for QUrl
+            abs_video_path = os.path.abspath(video_path)
+            
+            if os.path.exists(abs_video_path):
+                logging.getLogger(__name__).info("Loading video from: %s", abs_video_path)
+                self.media_player.setSource(QUrl.fromLocalFile(abs_video_path))
                 self.media_player.play()
             else:
-                logging.getLogger(__name__).warning("Video file not found: %s", video_path)
+                logging.getLogger(__name__).warning("Video file not found: %s (checked at %s)", rel_video_path, abs_video_path)
                 self.mediaPlaceholder.hide()
                 
         except Exception as e:
@@ -800,17 +850,6 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         except Exception:
             pass
 
-    def on_app_quit(self):
-        """Cleanup logic before application exits. Called via aboutToQuit signal."""
-        try:
-            if hasattr(self, 'backup_manager') and self.backup_manager is not None:
-                try:
-                    self.backup_manager.cancel()
-                except Exception:
-                    pass
-        except Exception:
-            pass
-
     def confirm_exit(self):
         """Shows a confirmation dialog before closing the application."""
         # Just call close(), it will trigger closeEvent
@@ -823,31 +862,67 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         else:
             event.ignore()
 
+    def show_about_dialog(self):
+        """Shows informative dialog about the application and author."""
+        title = "Acerca de EDMonitor"
+        text = (
+            "<b>EDMonitor</b><br><br>"
+            "Sistema de monitoreo y cálculo integral para procesos de electroerosión (EDM).<br><br>"
+            "<b>Desarrollador:</b><br>Manuel de Jesús Ruiz Martínez<br><br>"
+            "<b>Tecnologías:</b><br>Python, PySide6, SQLite, Qt Designer."
+        )
+        CustomMessageBox.information(self, title, text)
 
+    def on_app_quit(self):
+        """Cleanup logic before application exits. Called via aboutToQuit signal."""
+        try:
+            if hasattr(self, 'backup_manager') and self.backup_manager is not None:
+                try:
+                    self.backup_manager.cancel()
+                except Exception:
+                    pass
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    
+    # ---------------- Single Instance Protection ----------------
+    # Create a lock file in the temporary directory to prevent multiple instances
+    lock_path = os.path.join(QStandardPaths.writableLocation(QStandardPaths.TempLocation), "edmonitor.lock")
+    lock_file = QLockFile(lock_path)
+    
+    if not lock_file.tryLock(100):
+        # We use a standard QMessageBox here because CustomMessageBox might 
+        # not be ready or could require deeper UI initialization.
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Warning)
+        msg.setWindowTitle("EDMonitor - Error")
+        msg.setText("La aplicación ya está en ejecución.")
+        msg.setInformativeText("Solo se permite una instancia de EDMonitor abierta a la vez.")
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec()
+        sys.exit(0)
+    # ------------------------------------------------------------
+
+    app.setWindowIcon(QIcon(resource_path("assets/logo/logo.ico")))
     # app.setStyle("Fusion")
     app.setQuitOnLastWindowClosed(False)
 
     # Circular Splash
     splash = CircularSplash()
-    print("[debug] showing splash", flush=True)
     splash.show()
     app.processEvents()
     try:
         window = MyMainWindow()
-        print("[debug] created MyMainWindow instance", flush=True)
     except Exception:
-        print("[debug] exception while creating MyMainWindow:", flush=True)
         traceback.print_exc()
         raise
 
     # Connect Window Signals to Splash
     window.splash_progress.connect(splash.set_progress)
     window.initial_load_complete.connect(splash.finish)
-    print("[debug] connected splash signals", flush=True)
     
     # Connect Gage Board initial load signal to update splash progress
     if hasattr(window, "tablero_gage_widget"):
@@ -855,20 +930,16 @@ if __name__ == "__main__":
     
     # Now start the main window initial load (DB etc.) so splash receives progress
     try:
-        print("[debug] starting initial load", flush=True)
         try:
             window.start_initial_load()
         except Exception:
-            print("[debug] exception when starting initial load:", flush=True)
             traceback.print_exc()
     except Exception:
-        print("[debug] exception when starting initial load:")
         traceback.print_exc()
     
     # Show window when splash finishes (splash.finish emits nothing, so we hook into window.initial_load_complete too)
     
     def on_loaded():
-         print("[debug] on_loaded called: showing main window")
          window.show()
          app.setQuitOnLastWindowClosed(True)
        
@@ -883,7 +954,6 @@ if __name__ == "__main__":
     # Fallback
     def fallback_show():
         if not window.isVisible():
-            print("[debug] fallback_show triggered: showing window and closing splash")
             window.show()
             splash.close()
             app.setQuitOnLastWindowClosed(True)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowHUutjV.ui'
+## Form generated from reading UI file 'mainwindowEjbXdH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -498,15 +498,15 @@ class Ui_MainWindow(object):
 
         self.TopGroupLay.addItem(self.HSpacer)
 
-        self.BtnClear = QPushButton(self.TopBarGroup)
-        self.BtnClear.setObjectName(u"BtnClear")
-        self.BtnClear.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.BtnDoc = QPushButton(self.TopBarGroup)
+        self.BtnDoc.setObjectName(u"BtnDoc")
+        self.BtnDoc.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon2 = QIcon()
         icon2.addFile(u":/iconos/iconos/icons8-document.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.BtnClear.setIcon(icon2)
-        self.BtnClear.setIconSize(QSize(30, 30))
+        self.BtnDoc.setIcon(icon2)
+        self.BtnDoc.setIconSize(QSize(30, 30))
 
-        self.TopGroupLay.addWidget(self.BtnClear)
+        self.TopGroupLay.addWidget(self.BtnDoc)
 
 
         self.TopBarHorLay.addWidget(self.TopBarGroup)
@@ -1451,12 +1451,12 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"QtSigner \u2013 CEGA NIC", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"EDMonitor \u2013 CEGA NIC", None))
         self.CegaNicButton.setText(QCoreApplication.translate("MainWindow", u"EDMonitor  ", None))
         self.BtnSearch.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.labelIconoEmpresa.setText("")
         self.labelNombreEmpresa.setText(QCoreApplication.translate("MainWindow", u"CEGA Nicaragua S.A ", None))
-        self.BtnClear.setText(QCoreApplication.translate("MainWindow", u"Documentation", None))
+        self.BtnDoc.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.btnHome.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btnDocuments.setText(QCoreApplication.translate("MainWindow", u"Cards", None))
         self.btnCalculator.setText(QCoreApplication.translate("MainWindow", u"Japon", None))

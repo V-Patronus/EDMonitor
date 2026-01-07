@@ -3,6 +3,41 @@ import os
 import sqlite3
 from datetime import datetime
 import json
+import sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    if getattr(sys, 'frozen', False):
+        # PyInstaller 6 structure: base is either _MEIPASS or exe dir
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(sys.executable))
+        
+        # 1. Try direct path (root of bundle)
+        path = os.path.join(base_path, relative_path)
+        if os.path.exists(path):
+            return path
+            
+        # 2. Try _internal folder
+        internal_path = os.path.join(base_path, "_internal", relative_path)
+        if os.path.exists(internal_path):
+            return internal_path
+            
+        return path
+    return os.path.abspath(relative_path)
+
+def persistent_path(relative_path):
+    """ Returns a path relative to the application to save settings (User requested) """
+    if getattr(sys, 'frozen', False):
+        # Bundled mode: Look in _internal folder relative to the .exe
+        base_path = os.path.dirname(sys.executable)
+        full_path = os.path.join(base_path, "_internal", relative_path)
+    else:
+        # Development mode: Root of the project
+        base_path = os.path.abspath(".")
+        full_path = os.path.join(base_path, relative_path)
+    
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(full_path), exist_ok=True)
+    return full_path
 
 class BackupManager(QObject):
     # Signals to be emitted by main to request actions (connected internally)
@@ -20,8 +55,10 @@ class BackupManager(QObject):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        # JSON file to persist paths
-        self._json_path = os.path.join('database', 'backup_paths.json')
+        # JSON file to persist paths: Use persistent location
+        # JSON file to persist paths: Use folder 'database' as requested
+        self._json_path = persistent_path(os.path.join('database', 'backup_paths.json'))
+        # Ensure directory exists (persistent_path already does this, but for safety)
         self._ensure_db_dir()
 
         # internal cancel flag for cooperative cancellation
@@ -91,14 +128,22 @@ class BackupManager(QObject):
             return
 
         self.progress.emit(5, "Conectando a base de datos cards...")
-        dbpath = os.path.join('database', 'edm_cards.db')
+        # Use resource_path to find the bundled database
+        dbpath = resource_path(os.path.join('database', 'edm_cards.db'))
         try:
-            conn = sqlite3.connect(dbpath)
+            # Connect in read-only mode to avoid permission issues if in Program Files
+            conn = sqlite3.connect(f"file:{dbpath}?mode=ro", uri=True)
             df = pd.read_sql_query('SELECT * FROM cards', conn)
             conn.close()
         except Exception as e:
-            self.finished.emit(False, f"Error leyendo DB cards: {e}")
-            return
+            # Fallback if URI mode is not supported or fails
+            try:
+                conn = sqlite3.connect(dbpath)
+                df = pd.read_sql_query('SELECT * FROM cards', conn)
+                conn.close()
+            except Exception as e2:
+                self.finished.emit(False, f"Error leyendo DB cards: {e2} (Direct path: {dbpath})")
+                return
         if self._cancel_requested:
             self.finished.emit(False, 'Exportación de Cards cancelada')
             return
@@ -119,14 +164,20 @@ class BackupManager(QObject):
             return
 
         self.progress.emit(5, "Conectando a base de datos partes...")
-        dbpath = os.path.join('database', 'partes.db')
+        # Use resource_path to find the bundled database
+        dbpath = resource_path(os.path.join('database', 'partes.db'))
         try:
-            conn = sqlite3.connect(dbpath)
+            conn = sqlite3.connect(f"file:{dbpath}?mode=ro", uri=True)
             df = pd.read_sql_query('SELECT * FROM partes', conn)
             conn.close()
         except Exception as e:
-            self.finished.emit(False, f"Error leyendo DB partes: {e}")
-            return
+            try:
+                conn = sqlite3.connect(dbpath)
+                df = pd.read_sql_query('SELECT * FROM partes', conn)
+                conn.close()
+            except Exception as e2:
+                self.finished.emit(False, f"Error leyendo DB partes: {e2} (Direct path: {dbpath})")
+                return
         if self._cancel_requested:
             self.finished.emit(False, 'Exportación de Partes cancelada')
             return
@@ -149,16 +200,23 @@ class BackupManager(QObject):
             self.finished.emit(False, "Falta la librería 'reportlab'. Instálala: pip install reportlab")
             return
 
-        dbpath = os.path.join('database', 'partes.db')
+        dbpath = resource_path(os.path.join('database', 'partes.db'))
         try:
-            conn = sqlite3.connect(dbpath)
+            conn = sqlite3.connect(f"file:{dbpath}?mode=ro", uri=True)
             cur = conn.cursor()
             cur.execute('SELECT parte, tipo, posicion_i, posicion_j FROM partes')
             rows = cur.fetchall()
             conn.close()
         except Exception as e:
-            self.finished.emit(False, f"Error leyendo DB partes: {e}")
-            return
+            try:
+                conn = sqlite3.connect(dbpath)
+                cur = conn.cursor()
+                cur.execute('SELECT parte, tipo, posicion_i, posicion_j FROM partes')
+                rows = cur.fetchall()
+                conn.close()
+            except Exception as e2:
+                self.finished.emit(False, f"Error leyendo DB partes: {e2} (Direct path: {dbpath})")
+                return
 
         # Create a 5x6 grid (posicion_i: 1..5 rows, posicion_j: 1..6 cols)
         rows_count = 5
